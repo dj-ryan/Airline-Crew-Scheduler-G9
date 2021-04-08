@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline-Crew-Scheduler", "A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A051CAB0-FA71-4B13-AD70-D2E86381367A}"
 	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
+		class_description.txt = class_description.txt
 	EndProjectSection
 EndProject
 Global
