@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airline-Crew-Scheduler", "Airline-Crew-Scheduler\Airline-Crew-Scheduler.csproj", "{FDEB0C18-82DF-49C8-907F-2D8639FEFC30}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{A051CAB0-FA71-4B13-AD70-D2E86381367A}"
-	ProjectSection(SolutionItems) = preProject
-		class_description.txt = class_description.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
