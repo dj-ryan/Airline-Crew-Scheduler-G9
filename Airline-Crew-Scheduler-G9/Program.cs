@@ -12,6 +12,9 @@ namespace Airline_Crew_Scheduler_G9
         {
             //TODO: write program
             Console.WriteLine("Hello World!");
+            var yuh = new Nu150(100);
+            Console.WriteLine(yuh.TravelSpeed);
+
         }
     }
 }
