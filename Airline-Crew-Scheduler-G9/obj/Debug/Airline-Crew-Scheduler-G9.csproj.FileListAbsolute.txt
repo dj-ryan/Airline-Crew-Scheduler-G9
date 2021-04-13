@@ -1,0 +1,7 @@
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Airline-Crew-Scheduler-G9.exe.config
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Airline-Crew-Scheduler-G9.exe
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Airline-Crew-Scheduler-G9.pdb
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.csprojAssemblyReference.cache
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.csproj.CoreCompileInputs.cache
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.exe
+C:\Users\sambk\source\repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.pdb
