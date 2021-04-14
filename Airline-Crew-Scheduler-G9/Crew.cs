@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Dynamic;
 
 namespace Airline_Crew_Scheduler_G9
@@ -11,8 +12,13 @@ namespace Airline_Crew_Scheduler_G9
 
         public List<FlightAttendant> FlightAttendants { get; set; }
 
-        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
+    }
+
+    public class Gbr10Crew : Crew
+    {
+        public Gbr10Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
         {
+            QualificationCheck(captain, firstOfficer);
             Captain = captain;
             FirstOfficer = firstOfficer;
             var attendants = new List<FlightAttendant>()
@@ -22,9 +28,32 @@ namespace Airline_Crew_Scheduler_G9
             FlightAttendants = attendants;
         }
 
-        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
+        private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
+        {
+            if (captain.QualifiedForGbr10 == false || firstOfficer.QualifiedForGbr10 == false)
+            {
+                throw new ArgumentException("Crew not Qualified");
+            }
+        }
+    }
+
+    public class Nu150Crew : Crew
+    {
+        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
+        {
+            QualificationCheck(captain, firstOfficer);
+            Captain = captain;
+            FirstOfficer = firstOfficer;
+            var attendants = new List<FlightAttendant>()
+            {
+                flightAttendant
+            };
+            FlightAttendants = attendants;
+        }
+        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
             FlightAttendant flightAttendant2)
         {
+            QualificationCheck(captain, firstOfficer);
             Captain = captain;
             FirstOfficer = firstOfficer;
             var attendants = new List<FlightAttendant>()
@@ -33,6 +62,14 @@ namespace Airline_Crew_Scheduler_G9
                 flightAttendant2
             };
             FlightAttendants = attendants;
+        }
+
+        private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
+        {
+            if (captain.QualifiedForNu150 == false || firstOfficer.QualifiedForNu150 == false)
+            {
+                throw new ArgumentException("Crew not Qualified");
+            }
         }
     }
 }

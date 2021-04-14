@@ -14,7 +14,9 @@ namespace Airline_Crew_Scheduler_G9
             Console.WriteLine("Hello World!");
             var yuh = new Nu150(100);
             Console.WriteLine(yuh.TravelSpeed);
-
+            var unqualifiedPilot = new Pilot("Sam", "Kirchner", false, false);
+            var oneManCrew = new Nu150Crew(unqualifiedPilot, unqualifiedPilot, null);
+            
         }
     }
 }
