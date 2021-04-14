@@ -12,13 +12,8 @@ namespace Airline_Crew_Scheduler_G9
 
         public List<FlightAttendant> FlightAttendants { get; set; }
 
-    }
-
-    public class Gbr10Crew : Crew
-    {
-        public Gbr10Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
+        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
         {
-            QualificationCheck(captain, firstOfficer);
             Captain = captain;
             FirstOfficer = firstOfficer;
             var attendants = new List<FlightAttendant>()
@@ -26,6 +21,37 @@ namespace Airline_Crew_Scheduler_G9
                 flightAttendant
             };
             FlightAttendants = attendants;
+        }
+        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
+            FlightAttendant flightAttendant2)
+        {
+            Captain = captain;
+            FirstOfficer = firstOfficer;
+            var attendants = new List<FlightAttendant>()
+            {
+                flightAttendant1,
+                flightAttendant2
+            };
+            FlightAttendants = attendants;
+        }
+
+        public Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants)
+        {
+            Captain = captain;
+            FirstOfficer = firstOfficer;
+            FlightAttendants = flightAttendants;
+        }
+    }
+
+    public class Gbr10Crew : Crew
+    {
+        public Gbr10Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant) : base(captain, firstOfficer, flightAttendant)
+        {
+            QualificationCheck(captain, firstOfficer);
+        }
+        public Gbr10Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants) : base(captain, firstOfficer, flightAttendants)
+        {
+            QualificationCheck(captain, firstOfficer);
         }
 
         private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
@@ -39,29 +65,20 @@ namespace Airline_Crew_Scheduler_G9
 
     public class Nu150Crew : Crew
     {
-        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
+        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant) : base(captain, firstOfficer, flightAttendant)
         {
             QualificationCheck(captain, firstOfficer);
-            Captain = captain;
-            FirstOfficer = firstOfficer;
-            var attendants = new List<FlightAttendant>()
-            {
-                flightAttendant
-            };
-            FlightAttendants = attendants;
+            
         }
         public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
-            FlightAttendant flightAttendant2)
+            FlightAttendant flightAttendant2) : base(captain, firstOfficer, flightAttendant1, flightAttendant2)
         {
             QualificationCheck(captain, firstOfficer);
-            Captain = captain;
-            FirstOfficer = firstOfficer;
-            var attendants = new List<FlightAttendant>()
-            {
-                flightAttendant1,
-                flightAttendant2
-            };
-            FlightAttendants = attendants;
+            
+        }
+        public Nu150Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants) : base(captain, firstOfficer, flightAttendants)
+        {
+            QualificationCheck(captain, firstOfficer);
         }
 
         private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
