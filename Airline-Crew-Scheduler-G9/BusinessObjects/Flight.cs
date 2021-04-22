@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Airline_Crew_Scheduler_G9
+﻿namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
-    class Flight
+    public class Flight
     {
         //todo: add takeoff/ touchdown times
         public int FlightNumber { get; set; }

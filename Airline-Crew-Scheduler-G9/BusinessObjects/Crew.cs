@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 
-namespace Airline_Crew_Scheduler_G9
+namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Crew
     {

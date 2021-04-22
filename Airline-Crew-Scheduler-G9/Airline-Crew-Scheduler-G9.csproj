@@ -36,12 +36,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aircraft.cs" />
-    <Compile Include="Airport.cs" />
-    <Compile Include="Crew.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Flight.cs" />
+    <Compile Include="BusinessObjects\Aircraft.cs" />
+    <Compile Include="BusinessObjects\Airport.cs" />
+    <Compile Include="BusinessObjects\Crew.cs" />
+    <Compile Include="BusinessObjects\Employee.cs" />
+    <Compile Include="BusinessObjects\Flight.cs" />
     <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccessors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

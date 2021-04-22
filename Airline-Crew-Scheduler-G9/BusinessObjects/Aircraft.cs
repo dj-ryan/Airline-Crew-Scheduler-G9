@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Airline_Crew_Scheduler_G9
+namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public abstract class Aircraft
     {
@@ -32,7 +28,7 @@ namespace Airline_Crew_Scheduler_G9
             {
                 var gCrew = new Gbr10Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
             }
-            catch (Exception e)
+            catch
             {
                 throw new ArgumentException("This crew is not qualified for this aircraft.");
             }
@@ -52,7 +48,7 @@ namespace Airline_Crew_Scheduler_G9
             {
                 var nCrew = new Nu150Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
             }
-            catch (Exception e)
+            catch 
             {
                 throw new ArgumentException("This crew is not qualified for this aircraft.");
             }
