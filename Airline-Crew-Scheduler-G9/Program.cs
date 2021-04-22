@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using Airline_Crew_Scheduler_G9.BusinessObjects;
 
 namespace Airline_Crew_Scheduler_G9
 {
@@ -33,7 +34,8 @@ namespace Airline_Crew_Scheduler_G9
                 WriteLineCentered("(1) Crew Information");
                 WriteLineCentered("(2) Aircraft Information");
                 WriteLineCentered("(3) Flight  Information");
-                WriteLineCentered("(4) Quit");
+                WriteLineCentered("(4) Schedule a Flight!");
+                WriteLineCentered("(5) Quit");
                 Console.Write("ENTER REQUEST HERE: ");
                 
 
@@ -105,6 +107,140 @@ namespace Airline_Crew_Scheduler_G9
                             } while (input != "1");
                             break;
                         case 4:
+                            do
+                            {
+                                Console.Clear();
+                                Console.WriteLine("===================================================================================================");
+                                Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
+                                Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                Console.WriteLine("First, Select the origin airport.");
+                                Console.WriteLine("  (1) Lincoln, Nebraska");
+                                Console.WriteLine("  (2) Iowa City, Iowa");
+                                Console.WriteLine("  (3) Evanston, Illinois");
+                                Console.WriteLine("  (4) West Lafayette, Indiana");
+                                Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                Console.WriteLine("ENTER (5) TO RETURN TO HOME PAGE");
+                                Console.WriteLine("ENTER (6) TO RESTART");
+                                Console.WriteLine("===================================================================================================");
+                                input = Console.ReadLine();
+
+                                var invalidChoice = true;
+                                Airport originAirport = null;
+                                while (invalidChoice)
+                                {
+                                    invalidChoice = false;
+                                    //when data accessors are implemented, this should be changed to get the airport from the database
+                                    
+                                    switch (input)
+                                    {
+                                        case "1":
+                                            originAirport = new Airport(1, "Lincoln, Nebraska");
+                                            break;
+                                        case "2":
+                                            originAirport = new Airport(2, "Iowa City, Iowa");
+                                            break;
+                                        case "3":
+                                            originAirport = new Airport(3, "Evanston, Illinois");
+                                            break;
+                                        case "4":
+                                            originAirport = new Airport(4, "West Lafayette, Indiana");
+                                            break;
+                                        case "5":
+                                            break;
+                                        case "6":
+                                            break;
+                                        default:
+                                            Console.Write("Input is invalid. Please enter a valid option: ");
+                                            invalidChoice = true;
+                                            input = Console.ReadLine();
+                                            break;
+                                    }
+                                }
+
+                                if (input != "5" && input != "6")
+                                {
+                                    string firstInput = input;
+                                    Console.Clear();
+                                    Console.WriteLine("===================================================================================================");
+                                    Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
+                                    Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                    if (originAirport != null)
+                                        WriteLineCentered("ORIGIN: " + originAirport.Name);
+                                    Console.WriteLine("Next, Select the destination airport.");
+                                    Console.WriteLine("  (1) Lincoln, Nebraska");
+                                    Console.WriteLine("  (2) Iowa City, Iowa");
+                                    Console.WriteLine("  (3) Evanston, Illinois");
+                                    Console.WriteLine("  (4) West Lafayette, Indiana");
+                                    Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                    Console.WriteLine("ENTER (5) TO RETURN TO HOME PAGE");
+                                    Console.WriteLine("ENTER (6) TO RESTART");
+                                    Console.WriteLine("===================================================================================================");
+                                    input = Console.ReadLine();
+
+                                    while (firstInput == input)
+                                    {
+                                        Console.WriteLine("The destination airport cannot be the same as the origin airport.");
+                                        input = Console.ReadLine();
+                                    }
+
+                                    invalidChoice = true;
+                                    Airport destinationAirport = null;
+                                    while (invalidChoice)
+                                    {
+                                        invalidChoice = false;
+                                        //when data accessors are implemented, this should be changed to get the airport from the database
+
+                                        switch (input)
+                                        {
+                                            case "1":
+                                                destinationAirport = new Airport(1, "Lincoln, Nebraska");
+                                                break;
+                                            case "2":
+                                                destinationAirport = new Airport(2, "Iowa City, Iowa");
+                                                break;
+                                            case "3":
+                                                destinationAirport = new Airport(3, "Evanston, Illinois");
+                                                break;
+                                            case "4":
+                                                destinationAirport = new Airport(4, "West Lafayette, Indiana");
+                                                break;
+                                            case "5":
+                                                break;
+                                            case "6":
+                                                break;
+                                            default:
+                                                Console.Write("Input is invalid. Please enter a valid option: ");
+                                                invalidChoice = true;
+                                                input = Console.ReadLine();
+                                                break;
+                                        }
+                                    }
+
+                                    if (input != "5" && input != "6")
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("===================================================================================================");
+                                        Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
+                                        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                        if (originAirport != null)
+                                            WriteLineCentered("ORIGIN: " + originAirport.Name);
+                                        if (destinationAirport != null)
+                                            WriteLineCentered("DESTINATION: " + destinationAirport.Name);
+                                        Console.WriteLine("Next, Select the date.");
+                                        //TODO: 
+                                        Console.WriteLine("TO BE IMPLEMENTED....");
+                                        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                        Console.WriteLine("ENTER (5) TO RETURN TO HOME PAGE");
+                                        Console.WriteLine("ENTER (6) TO RESTART");
+                                        Console.WriteLine("===================================================================================================");
+                                        input = Console.ReadLine();
+                                    }
+                                }
+                                
+                                
+                            } while (input != "5");
+                            break;
+                        case 5:
                             running = false;
                             break;
                         default:
