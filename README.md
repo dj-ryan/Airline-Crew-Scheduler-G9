@@ -1,3 +1,5 @@
+Slide Deck Link: https://docs.google.com/presentation/d/10xsKsAK1UvUQWXDM1ujEkF_YfVrPvp5jv1zOwAffzmY/edit?usp=sharing
+
 UML Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_195c309d-f85d-4a49-8d8b-71138c693504
 
 ER Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_07a9b483-d276-468a-8fc1-b7fbf55e4d04
