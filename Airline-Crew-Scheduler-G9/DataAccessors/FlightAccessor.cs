@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Airline_Crew_Scheduler_G9.BusinessObjects;
+
 
 
 //Todo: Implement Flight db CRUD methods:
@@ -11,22 +13,55 @@ namespace Airline_Crew_Scheduler_G9
 
     public class FlightAccessor
     {
+        //Todo: Create db Flight Insertion method
+        public void InsertFlight(Flight NewFlight/*, dbConnection  */)
+        {
+
+        }
+
+        //Todo: Create db Flight Retreival Method
+        public void RetrieveFlight(/* query, dbConnection  */)
+        {
+
+        }
+
+        //Todo: Create db Flight special case Deletion method
+        public void DeleteFlight(int FlightNumber/* query, dbConnection  */)
+        {
+
+        }
+
+        //Todo: Create db Upcoming Flight Retreival Method
+        public void RetrieveUpcomingFlights(/* dbConnection  */)
+        {
+
+        }
+
+        //Todo: Create db ActualTakeoffTime update method
+        public void UpdateActualTakeffTime(int FlightNumber, DateTime ActualTakeoffTime /* dbConnection  */ )
+        {
+
+        }
+
+        //Todo: Create db Current Flight Retreival Method
+        public void RetrieveCurrentFlights(/* dbConnection  */)
+        {
+
+        }
+
+        //Todo: Create db ActualTouchdownTime update method
+        public void UpdateActualTouchdownTime(int FlightNumber, DateTime ActualTouchdownTime /* dbConnection  */ )
+        {
+
+        }
+
+        //Todo: Create db Completed Flight Retreival Method
+        public void RetrieveCompletedFlights(/* dbConnection  */)
+        {
+
+        }
 
     }
-    //Todo: Create db Flight Insertion method
 
-    //Todo: Create db Flight Retreival Method
-
-    //Todo: Create db Flight special case Deletion method
-
-    //Todo: Create db Upcoming Flight Retreival Method
-
-    //Todo: Create db ActualTakeoffTime update method
-
-    //Todo: Create db Current Flight Retreival Method
-
-    //Todo: Create db ActualTouchdownTime update method
-
-    //Todo: Create db Completed Flight Retreival Method
 
 }
