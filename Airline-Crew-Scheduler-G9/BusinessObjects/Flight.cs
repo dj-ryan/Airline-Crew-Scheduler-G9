@@ -4,7 +4,6 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Flight
     {
-        //todo: add takeoff/ touchdown times
         public int FlightNumber { get; set; }
         public Aircraft FlightAircraft { get; set; }
         public Airport OriginAirport { get; set; }
@@ -17,9 +16,14 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         public DateTime EstimatedTouchdownTime { get; set; }
         public DateTime ActualTouchdownTime { get; set; }
 
-        public Flight()
+        public Flight(int FlightNumber,
+                      Aircraft FlightAircraft,
+                      Airport OriginAirport, Airport DestinationAirport,
+                      Crew FlightCrew,
+                      DateTime ScheduledTakeoffTime, DateTime EstimatedTakeoffTime, DateTime ActualTakeoffTime,
+                      DateTime ScheduledTouchDownTime, DateTime EstimatedTouchDownTime, DateTime ActualTouchdownTime)
         {
-            //TODO: make constructor
+
         }
     }
 }

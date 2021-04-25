@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Airline_Crew_Scheduler_G9.BusinessObjects;
-
-
 
 //Todo: Implement Flight db CRUD methods:
 namespace Airline_Crew_Scheduler_G9

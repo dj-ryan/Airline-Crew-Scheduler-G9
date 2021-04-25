@@ -2,17 +2,15 @@
 {
     public class Airport
     {
-        //TODO: add location
-        public int Id { get; set; }
+        public int AirportId { get; set; }
         public string Name { get; set; }
-
         public Nu150Crew Nu150StandbyCrew { get; set; }
-
         public Gbr10Crew Gbr10StandbyCrew { get; set; }
 
+        //Need to add Standby Crew to Airport Constructor or make an interface right?
         public Airport(int id, string name)
         {
-            Id = id;
+            AirportId = id;
             Name = name;
         }
         

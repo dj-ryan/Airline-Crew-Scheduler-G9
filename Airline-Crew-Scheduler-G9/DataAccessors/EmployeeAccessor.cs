@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-//Todo: Create Employee db CRUD methods
+﻿//Todo: Create Employee db CRUD methods
 namespace Airline_Crew_Scheduler_G9
 {
 
