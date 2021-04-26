@@ -15,11 +15,30 @@ namespace Airline_Crew_Scheduler_G9.Tests
 
         }
 
-        //TODO: Aircraft Helper Methods
         public void QualifiedCrewCheckTester()
         {
 
         }
 
+        //TODO: SQL database Method Tests, SQL database models must be implemented first
+        public void InsertAirplaneTester()
+        {
+
+        }
+
+        public void RetrieveAirplaneTester()
+        {
+
+        }
+
+        public void UpdateAirplaneTester()
+        {
+
+        }
+
+        public void DeleteAirplaneTester()
+        {
+
+        }
     }
 }

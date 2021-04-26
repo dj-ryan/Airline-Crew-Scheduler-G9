@@ -22,7 +22,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Airplane Update Method
-        public void UpdateAirplane(/* query, dbConnection  */)
+        public void UpdateAirplane(BusinessObjects.Aircraft airplaneToUpdate/* query, dbConnection  */)
         {
 
         }

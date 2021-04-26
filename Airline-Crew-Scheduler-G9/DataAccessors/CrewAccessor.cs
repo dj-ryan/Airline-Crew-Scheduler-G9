@@ -22,28 +22,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 
         //Todo: Create an Crew Captain Update Method
 
-        public void UpdateCaptain(/* query, dbConnection  */)
-        {
-
-        }
-
-        //Todo: Create an Crew FirstOfficer Update Method
-
-        public void UpdateFirstOfficer(/* query, dbConnection  */)
-        {
-
-        }
-
-        //Todo: Create an Crew FlightAttendant1 Update Method
-
-        public void UpdateFlightAttendant1(/* query, dbConnection  */)
-        {
-
-        }
-
-        //Todo: Create an Crew FlightAttendant2 Update Method
-
-        public void UpdateFlightAttendant2(/* query, dbConnection  */)
+        public void UpdateCrew(BusinessObjects.Crew crewToUpdate /*dbConnection  */)
         {
 
         }

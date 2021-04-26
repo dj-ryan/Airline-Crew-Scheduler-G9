@@ -21,7 +21,7 @@ namespace Airline_Crew_Scheduler_G9
         }
 
         //Todo: Create db Flight special case Deletion method
-        public void DeleteFlight(int FlightNumber/* query, dbConnection  */)
+        public void DeleteFlight(BusinessObjects.Flight deadFlight/* query, dbConnection  */)
         {
 
         }
@@ -33,7 +33,7 @@ namespace Airline_Crew_Scheduler_G9
         }
 
         //Todo: Create db ActualTakeoffTime update method
-        public void UpdateActualTakeffTime(int FlightNumber, DateTime ActualTakeoffTime /* dbConnection  */ )
+        public void UpdateActualTakeffTime(BusinessObjects.Flight flightToUpdate, DateTime ActualTakeoffTime /* dbConnection  */ )
         {
 
         }
@@ -45,7 +45,7 @@ namespace Airline_Crew_Scheduler_G9
         }
 
         //Todo: Create db ActualTouchdownTime update method
-        public void UpdateActualTouchdownTime(int FlightNumber, DateTime ActualTouchdownTime /* dbConnection  */ )
+        public void UpdateActualTouchdownTime(BusinessObjects.Flight flightToUpdate, DateTime ActualTouchdownTime /* dbConnection  */ )
         {
 
         }

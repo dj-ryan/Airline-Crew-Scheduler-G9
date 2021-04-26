@@ -18,25 +18,25 @@ namespace Airline_Crew_Scheduler_G9
         }
 
         //Todo: db Airport update method
-        public void UpdateAirport(/* query, dbConnection  */)
+        public void UpdateAirport(BusinessObjects.Airport airportToUpdate/* dbConnection  */)
         {
 
         }
 
         //Todo: db Airport deletion metho
-        public void DeleteAirport(/* query, dbConnection  */)
+        public void DeleteAirport(BusinessObjects.Airport deadAirport/* dbConnection  */)
         {
 
         }
 
         //Todo: db Gbr10StandByCrew update method
-        public void UpdateGbr10StandByCrew(BusinessObjects.Gbr10Crew freshCrew/*, dbConnection  */)
+        public void UpdateGbr10StandByCrew(BusinessObjects.Airport airportToUpdate, BusinessObjects.Gbr10Crew freshCrew/*, dbConnection  */)
         {
 
         }
 
         //Todo: db Nu150StandByCrew update method
-        public void UpdateNu150StandByCrew(BusinessObjects.Nu150Crew freshCrew/*, dbConnection  */)
+        public void UpdateNu150StandByCrew(BusinessObjects.Airport airportToUpdate , BusinessObjects.Nu150Crew freshCrew/*, dbConnection  */)
         {
 
         }

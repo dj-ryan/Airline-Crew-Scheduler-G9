@@ -18,7 +18,7 @@ namespace Airline_Crew_Scheduler_G9
 
         //Todo: Create an Employee Update Method
 
-        public void UpdateEmployee(/* query, dbConnection  */)
+        public void UpdateEmployee(BusinessObjects.Employee employeeToUpdate/* query, dbConnection  */)
         {
 
         }
@@ -26,7 +26,7 @@ namespace Airline_Crew_Scheduler_G9
         //Todo: Create an Employee deletion Method
 
 
-        public void DeleteEmployee(/* query, dbConnection  */)
+        public void DeleteEmployee(BusinessObjects.Employee deadEmployee/* query, dbConnection  */)
         {
 
         }
