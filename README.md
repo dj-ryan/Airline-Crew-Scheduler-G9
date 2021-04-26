@@ -2,7 +2,7 @@ Slide Deck Link: https://docs.google.com/presentation/d/10xsKsAK1UvUQWXDM1ujEkF_
 
 UML Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_195c309d-f85d-4a49-8d8b-71138c693504
 
-ER Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_07a9b483-d276-468a-8fc1-b7fbf55e4d04
+ER Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_1ddb9d28-7b71-41b8-9734-58703909918f
 
 Database Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_c328c716-3c1b-46f1-b4d7-accea0d96238
 
