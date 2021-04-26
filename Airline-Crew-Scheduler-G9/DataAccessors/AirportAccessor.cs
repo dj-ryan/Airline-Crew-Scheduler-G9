@@ -1,5 +1,4 @@
-﻿using Airline_Crew_Scheduler_G9.BusinessObjects;
-
+﻿
 //Todo: Create Airport db CRUD Methods, Add database connection strings and functionality
 namespace Airline_Crew_Scheduler_G9
 {
@@ -7,7 +6,7 @@ namespace Airline_Crew_Scheduler_G9
     {
 
         //Todo: db Airport insertion method
-        public void InsertAirport(string AirportName, Nu150Crew Nu150StandbyCrew, Gbr10Crew Gbr10CStandbyrew/*, dbConnection  */)
+        public void InsertAirport(BusinessObjects.Airport newAirport/*, dbConnection  */)
         {
 
         }
@@ -31,13 +30,13 @@ namespace Airline_Crew_Scheduler_G9
         }
 
         //Todo: db Gbr10StandByCrew update method
-        public void UpdateGbr10StandByCrew(Gbr10Crew FreshCrew/*, dbConnection  */)
+        public void UpdateGbr10StandByCrew(BusinessObjects.Gbr10Crew freshCrew/*, dbConnection  */)
         {
 
         }
 
         //Todo: db Nu150StandByCrew update method
-        public void UpdateNu150StandByCrew(Nu150Crew FreshCrew/*, dbConnection  */)
+        public void UpdateNu150StandByCrew(BusinessObjects.Nu150Crew freshCrew/*, dbConnection  */)
         {
 
         }

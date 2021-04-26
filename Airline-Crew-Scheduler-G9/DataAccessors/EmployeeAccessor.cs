@@ -5,7 +5,7 @@ namespace Airline_Crew_Scheduler_G9
     public class EmployeeAccessor
     {
         //Todo: Create an Employee insertion method
-        public void InsertEmployee(string FirstName, string LastName, bool QualifiedForGbr10, bool QualifiedForNu150 /*, dbConnection  */)
+        public void InsertEmployee(BusinessObjects.Employee newEmployee /*, dbConnection  */)
         {
 
         }

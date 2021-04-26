@@ -1,5 +1,4 @@
 ﻿using System;
-using Airline_Crew_Scheduler_G9.BusinessObjects;
 
 //Todo: Implement Flight db CRUD methods:
 namespace Airline_Crew_Scheduler_G9
@@ -10,7 +9,7 @@ namespace Airline_Crew_Scheduler_G9
 
         //TODO: WIll need FlightTIme model accessor
         //Todo: Create db Flight Insertion method
-        public void InsertFlight(Flight NewFlight/*, dbConnection  */)
+        public void InsertFlight(BusinessObjects.Flight NewFlight/*, dbConnection  */)
         {
 
         }

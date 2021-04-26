@@ -42,11 +42,10 @@
     <Compile Include="BusinessObjects\Employee.cs" />
     <Compile Include="BusinessObjects\Flight.cs" />
     <Compile Include="DataAccessors\AirportAccessor.cs" />
+    <Compile Include="DataAccessors\AirplaneAccessor.cs" />
+    <Compile Include="DataAccessors\CrewAccessor.cs" />
     <Compile Include="DataAccessors\EmployeeAccessor.cs" />
     <Compile Include="DataAccessors\FlightAccessor.cs" />
-    <Compile Include="DatabaseModels\DbAirport.cs" />
-    <Compile Include="DatabaseModels\DbEmployee.cs" />
-    <Compile Include="DatabaseModels\DbFlight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Tests\AircraftTester.cs" />
     <Compile Include="Tests\AirportTester.cs" />
