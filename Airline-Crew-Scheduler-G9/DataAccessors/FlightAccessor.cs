@@ -7,6 +7,8 @@ namespace Airline_Crew_Scheduler_G9
 
     public class FlightAccessor
     {
+
+        //TODO: WIll need FlightTIme model accessor
         //Todo: Create db Flight Insertion method
         public void InsertFlight(Flight NewFlight/*, dbConnection  */)
         {

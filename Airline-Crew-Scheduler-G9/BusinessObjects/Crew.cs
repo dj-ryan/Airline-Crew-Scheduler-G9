@@ -5,6 +5,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Crew
     {
+        //TODO: Each crew should have a int crew ID
         public Pilot Captain { get; set; }
 
         public Pilot FirstOfficer { get; set; }

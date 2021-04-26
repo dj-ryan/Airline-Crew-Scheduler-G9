@@ -2,6 +2,8 @@
 {
     public class Employee
     {
+
+        //TODO: each employee should have an int employee ID
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
