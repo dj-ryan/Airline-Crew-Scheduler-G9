@@ -6,7 +6,7 @@ ER Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_1ddb9d28-7b
 
 Database Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_c328c716-3c1b-46f1-b4d7-accea0d96238
 
-Airline-Crew-Scheduler
+# Airline-Crew-Scheduler
 
 Cornhusker Airways (CHA) is a small regional airline that flies out of Lincoln, Nebraska; Iowa City, Iowa; Evanston, Illinois; and West Lafayette, Indiana. CHA needs a crew scheduling system to keep track of which employees are on (or are scheduled to be on) each flight. The crew positions are:
 
