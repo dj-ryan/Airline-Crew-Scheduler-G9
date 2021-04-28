@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 /*
 C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+#Stored Procedure Tutorial -> https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx
 */
 namespace Airline_Crew_Scheduler_G9.DataAccessors
 {

@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 /*
 C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+#Stored Procedure Tutorial -> https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx
 */
 //Todo: Implement Flight db CRUD methods:
 namespace Airline_Crew_Scheduler_G9
