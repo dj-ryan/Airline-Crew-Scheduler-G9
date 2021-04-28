@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObjects\Aircraft.cs" />
@@ -41,6 +42,7 @@
     <Compile Include="BusinessObjects\Crew.cs" />
     <Compile Include="BusinessObjects\Employee.cs" />
     <Compile Include="BusinessObjects\Flight.cs" />
+    <Compile Include="DataAccessors\AccessorHelper.cs" />
     <Compile Include="DataAccessors\AirportAccessor.cs" />
     <Compile Include="DataAccessors\AirplaneAccessor.cs" />
     <Compile Include="DataAccessors\CrewAccessor.cs" />
@@ -54,6 +56,18 @@
     <Compile Include="Tests\EmployeeTester.cs" />
     <Compile Include="Tests\FlightTester.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
