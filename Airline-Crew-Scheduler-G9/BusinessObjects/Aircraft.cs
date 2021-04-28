@@ -4,20 +4,20 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public abstract class Aircraft
     {
-        public int RegistrationNumber { get; set; }
+        public string RegistrationString { get; set; }
         public int TravelSpeed { get; set; } = 500;
         public int Capacity { get; set; }
 
-        protected Aircraft(int registrationNumber)
+        protected Aircraft(string registrationString)
         {
-            RegistrationNumber = registrationNumber;
+            RegistrationString = registrationString;
         }
         public abstract void QualifiedCrewCheck(Crew crew); //checks whether a crew is qualified for the aircraft
     }
 
     public class Gbr10 : Aircraft
     {
-        public Gbr10(int registrationNumber) : base(registrationNumber)
+        public Gbr10(string registrationString) : base(registrationString)
         {
             Capacity = 45;
         }
@@ -37,7 +37,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 
     public class Nu150 : Aircraft
     {
-        public Nu150(int registrationNumber) : base(registrationNumber)
+        public Nu150(string registrationString) : base(registrationString)
         {
             Capacity = 75;
         }

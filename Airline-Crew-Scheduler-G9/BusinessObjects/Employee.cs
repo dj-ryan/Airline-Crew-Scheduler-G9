@@ -4,8 +4,8 @@
     {
 
         public string employeeID { get; set; }
-        public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FirstName { get; set; }
     }
 
     public class Pilot : Employee
@@ -13,10 +13,10 @@
         public bool QualifiedForGbr10 { get; set; }
         public bool QualifiedForNu150 { get; set; }
 
-        public Pilot(string firstName, string lastName, bool qualifiedForGbr10, bool qualifiedForNu150)
+        public Pilot(string lastName, string firstName, bool qualifiedForGbr10, bool qualifiedForNu150)
         {
-            FirstName = firstName;
             LastName = lastName;
+            FirstName = firstName;
             QualifiedForGbr10 = qualifiedForGbr10;
             QualifiedForNu150 = qualifiedForNu150;
         }
@@ -24,10 +24,10 @@
 
     public class FlightAttendant : Employee
     {
-        public FlightAttendant(string firstName, string lastName)
+        public FlightAttendant(string lastName, string firstName)
         {
-            FirstName = firstName;
             LastName = lastName;
+            FirstName = firstName;
 
         }
 
