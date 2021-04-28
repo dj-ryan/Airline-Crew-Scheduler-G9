@@ -42,6 +42,7 @@
     <Compile Include="BusinessObjects\Crew.cs" />
     <Compile Include="BusinessObjects\Employee.cs" />
     <Compile Include="BusinessObjects\Flight.cs" />
+    <Compile Include="BusinessObjects\FlightTime.cs" />
     <Compile Include="DataAccessors\AccessorHelper.cs" />
     <Compile Include="DataAccessors\AirportAccessor.cs" />
     <Compile Include="DataAccessors\AircraftAccessor.cs" />
