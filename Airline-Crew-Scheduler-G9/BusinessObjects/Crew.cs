@@ -5,8 +5,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Crew
     {
-        //Todo: Add Int CrewId to match with SQL server
-        //Todo: Add Int CrewId to match with SQL server 
+        public int CrewId { get; set; }
         public Pilot Captain { get; set; }
 
         public Pilot FirstOfficer { get; set; }

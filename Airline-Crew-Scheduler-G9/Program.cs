@@ -134,16 +134,16 @@ namespace Airline_Crew_Scheduler_G9
                                     switch (input)
                                     {
                                         case "1":
-                                            originAirport = new Airport(1, "Lincoln, Nebraska");
+                                            originAirport = new Airport(1, "Lincoln", "Nebraska");
                                             break;
                                         case "2":
-                                            originAirport = new Airport(2, "Iowa City, Iowa");
+                                            originAirport = new Airport(2, "Iowa City", "Iowa");
                                             break;
                                         case "3":
-                                            originAirport = new Airport(3, "Evanston, Illinois");
+                                            originAirport = new Airport(3, "Evanston", "Illinois");
                                             break;
                                         case "4":
-                                            originAirport = new Airport(4, "West Lafayette, Indiana");
+                                            originAirport = new Airport(4, "West Lafayette", "Indiana");
                                             break;
                                         case "5":
                                             break;
@@ -165,7 +165,7 @@ namespace Airline_Crew_Scheduler_G9
                                     Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
                                     Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                     if (originAirport != null)
-                                        WriteLineCentered("ORIGIN: " + originAirport.Name);
+                                        WriteLineCentered("ORIGIN: " + originAirport.AirportId);
                                     Console.WriteLine("Next, Select the destination airport.");
                                     Console.WriteLine("  (1) Lincoln, Nebraska");
                                     Console.WriteLine("  (2) Iowa City, Iowa");
@@ -193,16 +193,16 @@ namespace Airline_Crew_Scheduler_G9
                                         switch (input)
                                         {
                                             case "1":
-                                                destinationAirport = new Airport(1, "Lincoln, Nebraska");
+                                                destinationAirport = new Airport(1, "Lincoln", "Nebraska");
                                                 break;
                                             case "2":
-                                                destinationAirport = new Airport(2, "Iowa City, Iowa");
+                                                destinationAirport = new Airport(2, "Iowa City", "Iowa");
                                                 break;
                                             case "3":
-                                                destinationAirport = new Airport(3, "Evanston, Illinois");
+                                                destinationAirport = new Airport(3, "Evanston", "Illinois");
                                                 break;
                                             case "4":
-                                                destinationAirport = new Airport(4, "West Lafayette, Indiana");
+                                                destinationAirport = new Airport(4, "West Lafayette", "Indiana");
                                                 break;
                                             case "5":
                                                 break;
@@ -223,9 +223,9 @@ namespace Airline_Crew_Scheduler_G9
                                         Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
                                         Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                         if (originAirport != null)
-                                            WriteLineCentered("ORIGIN: " + originAirport.Name);
+                                            WriteLineCentered("ORIGIN: " + originAirport.AirportId);
                                         if (destinationAirport != null)
-                                            WriteLineCentered("DESTINATION: " + destinationAirport.Name);
+                                            WriteLineCentered("DESTINATION: " + destinationAirport.AirportId);
                                         Console.WriteLine("Next, Select the date.");
                                         //TODO: 
                                         Console.WriteLine("TO BE IMPLEMENTED....");

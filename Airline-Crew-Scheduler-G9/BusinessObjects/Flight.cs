@@ -11,9 +11,8 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         public Crew FlightCrew { get; set; }
         public FlightTime Flightlog { get; set; }
 
-        Flight(int flightNumber, Aircraft flightAircraft, Airport originAirport, Airport destinationAirport, FlightTime flightlog)
+        Flight(Aircraft flightAircraft, Airport originAirport, Airport destinationAirport, FlightTime flightlog)
         {
-            FlightNumber = flightNumber;
             FlightAircraft = flightAircraft;
             OriginAirport = originAirport;
             DestinationAirport = destinationAirport;

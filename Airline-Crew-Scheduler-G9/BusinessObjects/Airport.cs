@@ -3,17 +3,16 @@
     public class Airport
     {
         public int AirportId { get; set; }
-        public string Name { get; set; }
-        //TODO: Split name into state and city field
-        //TODO: Split name into state and city field
-
+        public string City { get; set; }
+        public string State { get; set; }
         public Nu150Crew Nu150StandbyCrew { get; set; }
         public Gbr10Crew Gbr10StandbyCrew { get; set; }
 
-        public Airport(int id, string name)
+        public Airport(int id, string city, string state)
         {
             AirportId = id;
-            Name = name;
+            City = city;
+            State = state;
         }
         
     }

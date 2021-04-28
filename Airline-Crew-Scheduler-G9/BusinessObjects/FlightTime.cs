@@ -16,11 +16,10 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         public DateTime EstimatedTouchdownTime { get; set; }
         public DateTime ActualTouchdownTime { get; set; }
 
-        public FlightTime(int timeId, 
+        public FlightTime( 
                       DateTime scheduledTakeoffTime, DateTime estimatedTakeoffTime,
                       DateTime scheduledTouchdownTime, DateTime estimatedTouchDownTime)
         {
-            TimeId = timeId;
             ScheduledTakeoffTime = scheduledTakeoffTime;
             EstimatedTakeoffTime = estimatedTakeoffTime;
             ScheduledTouchdownTime = scheduledTouchdownTime;

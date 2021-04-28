@@ -3,9 +3,7 @@
     public class Employee
     {
 
-        //TODO: Add EmployeeId field to match with SQL model
-        //TODO: Add EmployeeId field to match with SQL model
-
+        public string employeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
