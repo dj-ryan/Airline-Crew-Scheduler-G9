@@ -21,22 +21,22 @@ namespace Airline_Crew_Scheduler_G9.Tests
         }
 
         //TODO: SQL database Method Tests, SQL database models must be implemented first
-        public void InsertAirplaneTester()
+        public void InsertAircraftTester()
         {
 
         }
 
-        public void RetrieveAirplaneTester()
+        public void RetrieveAircraftTester()
         {
 
         }
 
-        public void UpdateAirplaneTester()
+        public void UpdateAircraftTester()
         {
 
         }
 
-        public void DeleteAirplaneTester()
+        public void DeleteAircraftTester()
         {
 
         }

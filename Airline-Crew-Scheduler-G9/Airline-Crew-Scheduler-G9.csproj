@@ -44,7 +44,7 @@
     <Compile Include="BusinessObjects\Flight.cs" />
     <Compile Include="DataAccessors\AccessorHelper.cs" />
     <Compile Include="DataAccessors\AirportAccessor.cs" />
-    <Compile Include="DataAccessors\AirplaneAccessor.cs" />
+    <Compile Include="DataAccessors\AircraftAccessor.cs" />
     <Compile Include="DataAccessors\CrewAccessor.cs" />
     <Compile Include="DataAccessors\EmployeeAccessor.cs" />
     <Compile Include="DataAccessors\FlightAccessor.cs" />

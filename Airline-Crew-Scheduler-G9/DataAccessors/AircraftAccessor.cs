@@ -11,11 +11,11 @@ C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
 */
 namespace Airline_Crew_Scheduler_G9.DataAccessors
 {
-    class AirplaneAccessor
+    class AircraftAccessor
     {
 
-        //Todo: Create an Airplane insertion method
-        public void InsertAirplane(Aircraft newAircraft)
+        //Todo: Create an Aircraft insertion method
+        public void InsertAircraft(Aircraft newAircraft)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
@@ -24,8 +24,8 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             }
         }
 
-        //Todo: Create an Airplane retreival method
-        public List<Aircraft> RetrieveAirplane()
+        //Todo: Create an Aircraft retreival method
+        public List<Aircraft> RetrieveAircraft()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
@@ -34,8 +34,8 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             }
         }
 
-        //Todo: Create an Airplane Update Method
-        public void UpdateAirplane(Aircraft airplaneToUpdate)
+        //Todo: Create an Aircraft Update Method
+        public void UpdateAircraft(Aircraft AircraftToUpdate)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
@@ -44,8 +44,8 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             }
         }
 
-        //Todo: Create an Airplane deletion Method
-        public void DeleteAirplane(Aircraft deadAirplane)
+        //Todo: Create an Aircraft deletion Method
+        public void DeleteAircraft(Aircraft deadAircraft)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
