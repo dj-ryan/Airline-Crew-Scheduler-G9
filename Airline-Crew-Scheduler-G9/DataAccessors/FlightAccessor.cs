@@ -36,6 +36,16 @@ namespace Airline_Crew_Scheduler_G9
             }
         }
 
+        //Todo: Create db Flight complete update method
+        public void UpdateFlight()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            {
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
+            }
+        }
+
         //Todo: Create db Flight special case Deletion method
         public void DeleteFlight(Flight deadFlight)
         {

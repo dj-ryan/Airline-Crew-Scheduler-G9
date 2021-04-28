@@ -24,6 +24,11 @@ namespace Airline_Crew_Scheduler_G9.Tests
 
         }
 
+        public void UpdateFlightTester()
+        {
+
+        }
+
         public void DeleteFlightTester()
         {
 
