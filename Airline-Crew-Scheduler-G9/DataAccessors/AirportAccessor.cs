@@ -1,72 +1,78 @@
 ﻿
 //Todo: Create Airport db CRUD Methods, Add database connection strings and functionality
+using Airline_Crew_Scheduler_G9.BusinessObjects;
 using Airline_Crew_Scheduler_G9.DataAccessors;
+using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Data;
-
+using System.Linq;
+/*
+C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+*/
 namespace Airline_Crew_Scheduler_G9
 {
     public class AirportAccessor
     {
 
         //Todo: db Airport insertion method
-        public void InsertAirport(BusinessObjects.Airport newAirport/*, dbConnection  */)
+        public void InsertAirport(Airport newAirport)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: db Airport retrieval method
-        public void RetrieveAirport(/* query, dbConnection  */ )
+        public List<Airport> RetrieveAirport()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var AirportList = connection.Query<Airport>("/*StoredProcdedureCall*/").ToList();
+                return AirportList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: db Airport update method
-        public void UpdateAirport(BusinessObjects.Airport airportToUpdate/* dbConnection  */)
+        public void UpdateAirport(Airport airportToUpdate)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: db Airport deletion metho
-        public void DeleteAirport(BusinessObjects.Airport deadAirport/* dbConnection  */)
+        public void DeleteAirport(Airport deadAirport)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: db Gbr10StandByCrew update method
-        public void UpdateGbr10StandByCrew(BusinessObjects.Airport airportToUpdate, BusinessObjects.Gbr10Crew freshCrew/*, dbConnection  */)
+        public void UpdateGbr10StandByCrew(Airport airportToUpdate, Gbr10Crew freshCrew)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: db Nu150StandByCrew update method
-        public void UpdateNu150StandByCrew(BusinessObjects.Airport airportToUpdate , BusinessObjects.Nu150Crew freshCrew/*, dbConnection  */)
+        public void UpdateNu150StandByCrew(Airport airportToUpdate , Nu150Crew freshCrew)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
     }
 }

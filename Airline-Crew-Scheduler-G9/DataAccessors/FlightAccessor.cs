@@ -1,7 +1,13 @@
-﻿using Airline_Crew_Scheduler_G9.DataAccessors;
+﻿using Airline_Crew_Scheduler_G9.BusinessObjects;
+using Airline_Crew_Scheduler_G9.DataAccessors;
+using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Data;
-
+using System.Linq;
+/*
+C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+*/
 //Todo: Implement Flight db CRUD methods:
 namespace Airline_Crew_Scheduler_G9
 {
@@ -11,83 +17,83 @@ namespace Airline_Crew_Scheduler_G9
 
         //TODO: WIll need FlightTIme model accessor
         //Todo: Create db Flight Insertion method
-        public void InsertFlight(BusinessObjects.Flight NewFlight/*, dbConnection  */)
+        public void InsertFlight(Flight NewFlight)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db Flight Retreival Method
-        public void RetrieveFlight(/* query, dbConnection  */)
+        public List<Flight> RetrieveFlight()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var AllList = connection.Query<Flight>("/*StoredProcdedureCall*/").ToList();
+                return AllList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db Flight special case Deletion method
-        public void DeleteFlight(BusinessObjects.Flight deadFlight/* query, dbConnection  */)
+        public void DeleteFlight(Flight deadFlight)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db Upcoming Flight Retreival Method
-        public void RetrieveUpcomingFlights(/* dbConnection  */)
+        public List<Flight> RetrieveUpcomingFlights()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var UpcomingList = connection.Query<Flight>("/*StoredProcdedureCall*/").ToList();
+                return UpcomingList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db ActualTakeoffTime update method
-        public void UpdateActualTakeffTime(BusinessObjects.Flight flightToUpdate, DateTime ActualTakeoffTime /* dbConnection  */ )
+        public void UpdateActualTakeffTime(Flight flightToUpdate, DateTime ActualTakeoffTime)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db Current Flight Retreival Method
-        public void RetrieveCurrentFlights(/* dbConnection  */)
+        public List<Flight> RetrieveCurrentFlights()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var CurrentList = connection.Query<Flight>("/*StoredProcdedureCall*/").ToList();
+                return CurrentList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db ActualTouchdownTime update method
-        public void UpdateActualTouchdownTime(BusinessObjects.Flight flightToUpdate, DateTime ActualTouchdownTime /* dbConnection  */ )
+        public void UpdateActualTouchdownTime(Flight flightToUpdate, DateTime ActualTouchdownTime)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create db Completed Flight Retreival Method
-        public void RetrieveCompletedFlights(/* dbConnection  */)
+        public List<Flight> RetrieveCompletedFlights()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var CompletedList = connection.Query<Flight>("/*StoredProcdedureCall*/").ToList();
+                return CompletedList;
             }
-            throw new NotImplementedException();
         }
 
     }

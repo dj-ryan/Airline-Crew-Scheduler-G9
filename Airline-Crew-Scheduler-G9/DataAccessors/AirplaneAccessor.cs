@@ -1,53 +1,57 @@
-﻿using System;
+﻿using Airline_Crew_Scheduler_G9.BusinessObjects;
+using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+*/
 namespace Airline_Crew_Scheduler_G9.DataAccessors
 {
     class AirplaneAccessor
     {
 
         //Todo: Create an Airplane insertion method
-        public void InsertAirplane(BusinessObjects.Aircraft newAircraft /*, dbConnection  */)
+        public void InsertAirplane(Aircraft newAircraft)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Airplane retreival method
-        public void RetrieveAirplane(/* query, dbConnection  */)
+        public List<Aircraft> RetrieveAirplane()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var AircraftList = connection.Query<Aircraft>("/*StoredProcdedureCall*/").ToList();
+                return AircraftList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Airplane Update Method
-        public void UpdateAirplane(BusinessObjects.Aircraft airplaneToUpdate/* query, dbConnection  */)
+        public void UpdateAirplane(Aircraft airplaneToUpdate)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Airplane deletion Method
-        public void DeleteAirplane(BusinessObjects.Aircraft deadAirplane/* query, dbConnection  */)
+        public void DeleteAirplane(Aircraft deadAirplane)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
     }
 }

@@ -6,53 +6,56 @@ using Dapper;
 using System;
 using Airline_Crew_Scheduler_G9.DataAccessors;
 using System.Data;
-
+using System.Linq;
+/*
+C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
+*/
 namespace Airline_Crew_Scheduler_G9
 {
 
     public class EmployeeAccessor
     {
         //Todo: Create an Employee insertion method
-        public void InsertEmployee(BusinessObjects.Employee newEmployee /*, dbConnection  */)
+        public void InsertEmployee(Employee newEmployee)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Employee retreival method
-        public List<Employee> RetrieveEmployee(/* query, dbConnection  */)
+        public List<Employee> RetrieveEmployee()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                var EmpList = connection.Query<Employee>("/*StoredProcdedureCall*/").ToList();
+                return EmpList;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Employee Update Method
 
-        public void UpdateEmployee(BusinessObjects.Employee employeeToUpdate/* query, dbConnection  */)
+        public void UpdateEmployee(Employee employeeToUpdate)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
 
         //Todo: Create an Employee deletion Method
 
 
-        public void DeleteEmployee(BusinessObjects.Employee deadEmployee/* query, dbConnection  */)
+        public void DeleteEmployee(Employee deadEmployee)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {
-
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
             }
-            throw new NotImplementedException();
         }
     }
 

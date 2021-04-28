@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 /*
 C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
-
 */
 namespace Airline_Crew_Scheduler_G9.DataAccessors
 {
