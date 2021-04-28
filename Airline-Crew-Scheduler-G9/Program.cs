@@ -15,7 +15,7 @@ namespace Airline_Crew_Scheduler_G9
         Patrick's Text Mockup >> https://docs.google.com/document/d/13HqbDPXDHulH8E7xu-BqlCOXNvNUFFQDuUu9oPxLmrs/edit
         How to Center Text ??>> https://stackoverflow.com/questions/21917203/how-do-i-center-text-in-a-console-application
         */
-        static void Main()
+        public static void Main()
         {
             Console.SetWindowSize(100, 30);
             var running = true;
@@ -33,7 +33,7 @@ namespace Airline_Crew_Scheduler_G9
                 WriteLineCentered("Please enter the appropriate number associated with your request then hit enter");
                 WriteLineCentered("(1) Crew Information");
                 WriteLineCentered("(2) Aircraft Information");
-                WriteLineCentered("(3) Flight  Information");
+                WriteLineCentered("(3) Flight Information");
                 WriteLineCentered("(4) Schedule a Flight!");
                 WriteLineCentered("(5) Quit");
                 Console.Write("ENTER REQUEST HERE: ");
@@ -165,7 +165,7 @@ namespace Airline_Crew_Scheduler_G9
                                     Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
                                     Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                     if (originAirport != null)
-                                        WriteLineCentered("ORIGIN: " + originAirport.AirportId);
+                                        WriteLineCentered("ORIGIN: " + originAirport.City + ", " + originAirport.State);
                                     Console.WriteLine("Next, Select the destination airport.");
                                     Console.WriteLine("  (1) Lincoln, Nebraska");
                                     Console.WriteLine("  (2) Iowa City, Iowa");
@@ -223,9 +223,9 @@ namespace Airline_Crew_Scheduler_G9
                                         Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
                                         Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                         if (originAirport != null)
-                                            WriteLineCentered("ORIGIN: " + originAirport.AirportId);
+                                            WriteLineCentered("ORIGIN: " + originAirport.City + ", " + originAirport.State);
                                         if (destinationAirport != null)
-                                            WriteLineCentered("DESTINATION: " + destinationAirport.AirportId);
+                                            WriteLineCentered("DESTINATION: " + destinationAirport.City + ", " + destinationAirport.State);
                                         Console.WriteLine("Next, Select the date.");
                                         //TODO: 
                                         Console.WriteLine("TO BE IMPLEMENTED....");
@@ -258,7 +258,7 @@ namespace Airline_Crew_Scheduler_G9
 
         private static void WriteLineCentered(string s)
         {
-            Console.WriteLine(String.Format("{0," + (Console.WindowWidth / 2 + s.Length / 2) + "}", s));
+            Console.WriteLine(String.Format("{0," + (100 / 2 + s.Length / 2) + "}", s));
         }
     }
 }

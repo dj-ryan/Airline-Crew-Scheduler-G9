@@ -15,3 +15,6 @@ C:\Users\sholl\Documents\GitHub\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler
 C:\Users\sholl\Documents\GitHub\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Dapper.dll
 C:\Users\sholl\Documents\GitHub\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Dapper.xml
 C:\Users\sholl\Documents\GitHub\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.csproj.CopyComplete
+C:\Users\sambk\Source\Repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Dapper.dll
+C:\Users\sambk\Source\Repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\bin\Debug\Dapper.xml
+C:\Users\sambk\Source\Repos\Airline-Crew-Scheduler-G9\Airline-Crew-Scheduler-G9\obj\Debug\Airline-Crew-Scheduler-G9.csproj.CopyComplete
