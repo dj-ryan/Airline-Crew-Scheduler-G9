@@ -4,7 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Airline_Crew_Scheduler_G9.BusinessObjects;
+using Airline_Crew_Scheduler_G9.DataAccessors;
 
 namespace Airline_Crew_Scheduler_G9
 {
@@ -17,6 +19,7 @@ namespace Airline_Crew_Scheduler_G9
         */
         public static void Main()
         {
+            
             Console.SetWindowSize(100, 30);
             var running = true;
             while (running)
@@ -24,6 +27,7 @@ namespace Airline_Crew_Scheduler_G9
                 string input = "";
                 ushort choice = 0;
                 Console.Clear();
+                AircraftAccessor.RetrieveAircraft();
                 Console.WriteLine("-------------------------WELCOME TO CORNHUSKER AIRWAYS CONSOLE APPLICATION-------------------------");
                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                 Console.WriteLine(" Cornhusker Airways (CHA) is a small regional airline that provides high quality flights out of\n " +
