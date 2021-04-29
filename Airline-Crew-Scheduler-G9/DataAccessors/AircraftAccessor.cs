@@ -35,24 +35,20 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         {
             MySqlConnection conn;
             string myConnectionString;
-            myConnectionString = "Server=cse.unl.edu;Port=3306;Database=atimla;Uid=atimla;Pwd=ZxAfxIqxm1;";
+            myConnectionString = "Server=cse.unl.edu; Port=3306; Database=atimla; Uid=atimla; Pwd=ZxAfxIqxm1;";
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
             conn.Open();
-            //Aircraft a1 = new Aircraft();
-
             using (MySqlConnection connection = conn)
             {
-                
-                //IEnumerable<string> aircraftID = connection.Query<string>("SELECT planeType FROM Airplane WHERE airplaneID = '1'");
-                MySqlCommand cmd = new MySqlCommand("SELECT planeType FROM Airplane WHERE airplaneID = '1'", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airplane", conn);
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
+                conn.Close();
                 return dt;
-            }
-            conn.Close();
+            } 
         }
 
         //Todo: Create an Aircraft Update Method

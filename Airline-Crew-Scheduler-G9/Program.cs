@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using MySql.Data.MySqlClient;
 using Airline_Crew_Scheduler_G9.BusinessObjects;
 using Airline_Crew_Scheduler_G9.DataAccessors;
 
@@ -19,26 +20,22 @@ namespace Airline_Crew_Scheduler_G9
         */
         public static void Main()
         {
-           DataTable allAircraft = AircraftAccessor.RetrieveAircraft();
-           allAircraft = AircraftAccessor.RetrieveAircraft();
-            string airplaneID, planeType, registrationNo, seats, speed;
-            airplaneID = "airplaneID not assigned";
+            //DataTable allAircraft = AircraftAccessor.RetrieveAircraft();
+            //allAircraft = AircraftAccessor.RetrieveAircraft();
             Console.SetWindowSize(100, 30);
             var running = true;
             while (running)
             {
-                foreach (DataRow dr in allAircraft.Rows)
-                {
-                     airplaneID = dr["airplaneID"].ToString();
-                     planeType = dr["planeType"].ToString(); 
-                     registrationNo = dr["registrationNo"].ToString();
-                     seats = dr["seats"].ToString(); 
-                     speed = dr["speed"].ToString();
-                }
-                Console.WriteLine(value: $"airplaneID: {airplaneID}");
                 string input = "";
                 ushort choice = 0;
-               // Console.Clear();
+                //Console.Clear();
+                foreach (DataRow dataRow in allAircraft.Rows)
+                {
+                    foreach (var item in dataRow.ItemArray)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
                 Console.WriteLine("-------------------------WELCOME TO CORNHUSKER AIRWAYS CONSOLE APPLICATION-------------------------");
                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                 Console.WriteLine(" Cornhusker Airways (CHA) is a small regional airline that provides high quality flights out of\n " +
