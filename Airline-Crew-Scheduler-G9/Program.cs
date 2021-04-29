@@ -18,16 +18,19 @@ namespace Airline_Crew_Scheduler_G9
         */
         public static void Main()
         {
-           List<Aircraft> allAircraft = AircraftAccessor.RetrieveAircraft();
+           IEnumerable<string> allAircraft = AircraftAccessor.RetrieveAircraft();
            allAircraft = AircraftAccessor.RetrieveAircraft();
             Console.SetWindowSize(100, 30);
             var running = true;
             while (running)
             {
-                Console.WriteLine(allAircraft[1]);
+                foreach (var row in allAircraft.ToList())
+                {
+                    Console.WriteLine(row);
+                }
                 string input = "";
                 ushort choice = 0;
-                Console.Clear();
+               // Console.Clear();
                 Console.WriteLine("-------------------------WELCOME TO CORNHUSKER AIRWAYS CONSOLE APPLICATION-------------------------");
                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                 Console.WriteLine(" Cornhusker Airways (CHA) is a small regional airline that provides high quality flights out of\n " +

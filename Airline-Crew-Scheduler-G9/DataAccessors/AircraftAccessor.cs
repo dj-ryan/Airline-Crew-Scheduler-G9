@@ -30,7 +30,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Aircraft retreival method
-        public static List<Aircraft> RetrieveAircraft()
+        public static IEnumerable<string> RetrieveAircraft()
         {
             MySqlConnection conn;
             string myConnectionString;
@@ -40,8 +40,8 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             //conn.Open();
             using (MySqlConnection connection = conn)
             {
-                var AircraftList = connection.Query<Aircraft>("SELECT * FROM Airplane").ToList();
-                return AircraftList;
+                IEnumerable<string> enumerable = connection.Query<string>("SELECT planeType FROM Airplane WHERE airplaneID = '1'");
+                return enumerable;
             }
         }
 
