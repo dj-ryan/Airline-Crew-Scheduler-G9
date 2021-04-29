@@ -18,6 +18,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 {
     class AircraftAccessor
     {
+        public static object MessageBox { get; private set; }
 
         //Todo: Create an Aircraft insertion method
         public void InsertAircraft(Aircraft newAircraft)
@@ -30,37 +31,28 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Aircraft retreival method
-        public static List<Aircraft> RetrieveAircraft()
+        public static DataTable RetrieveAircraft()
         {
             MySqlConnection conn;
             string myConnectionString;
             myConnectionString = "Server=cse.unl.edu;Port=3306;Database=atimla;Uid=atimla;Pwd=ZxAfxIqxm1;";
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            //conn.Open();
+            conn.Open();
             //Aircraft a1 = new Aircraft();
 
             using (MySqlConnection connection = conn)
             {
                 
-                IEnumerable<string> aircraftID = connection.Query<string>("SELECT planeType FROM Airplane WHERE airplaneID = '1'");
-                IEnumerable<string> aircraftSeats = connection.Query<string>("SELECT seats FROM Airplane WHERE airplaneID = '1'");
-                IEnumerable<string> aircraftReg = connection.Query<string>("SELECT registrationNo FROM Airplane WHERE airplaneID = '1'");
-                IEnumerable<string> aircraftSpeed = connection.Query<string>("SELECT speed FROM Airplane WHERE airplaneID = '1'");
-
-                IEnumerable<string> aircraftList1 = Enumerable.Concat<string>(aircraftID, 
-                                                                             aircraftSeats);
-                IEnumerable<string> aircraftList2 = Enumerable.Concat<string>(aircraftReg,
-                                                                             aircraftSpeed);
-                IEnumerable<string> aircraftList = Enumerable.Concat<string>(aircraftList1,
-                                                                             aircraftList2);
-                foreach (var row in aircraftList.ToList())
-                {
-
-                }
-                
-                return aircraftList;
+                //IEnumerable<string> aircraftID = connection.Query<string>("SELECT planeType FROM Airplane WHERE airplaneID = '1'");
+                MySqlCommand cmd = new MySqlCommand("SELECT planeType FROM Airplane WHERE airplaneID = '1'", conn);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
             }
+            conn.Close();
         }
 
         //Todo: Create an Aircraft Update Method
