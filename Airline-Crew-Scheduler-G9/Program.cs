@@ -18,16 +18,16 @@ namespace Airline_Crew_Scheduler_G9
         */
         public static void Main()
         {
-           IEnumerable<string> allAircraft = AircraftAccessor.RetrieveAircraft();
+           List<Aircraft> allAircraft = AircraftAccessor.RetrieveAircraft();
            allAircraft = AircraftAccessor.RetrieveAircraft();
             Console.SetWindowSize(100, 30);
             var running = true;
             while (running)
             {
-                foreach (var row in allAircraft.ToList())
-                {
-                    Console.WriteLine(row);
-                }
+                //foreach (var row in allAircraft.ToList())
+                //{
+                    Console.WriteLine(allAircraft);
+                //}
                 string input = "";
                 ushort choice = 0;
                // Console.Clear();

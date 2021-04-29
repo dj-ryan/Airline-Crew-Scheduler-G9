@@ -4,13 +4,15 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public abstract class Aircraft
     {
-        public string RegistrationString { get; set; }
-        public int TravelSpeed { get; set; } = 500;
-        public int Capacity { get; set; }
+        public int airplaneID { get; set;}
+        public string planeType { get; set; }
+        public string registrationNo { get; set; }
+        public int speed { get; set; } = 500;
+        public int seats { get; set; }
 
         protected Aircraft(string registrationString)
         {
-            RegistrationString = registrationString;
+            registrationNo = registrationString;
         }
         public abstract void QualifiedCrewCheck(Crew crew); //checks whether a crew is qualified for the aircraft
     }
@@ -19,7 +21,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
     {
         public Gbr10(string registrationString) : base(registrationString)
         {
-            Capacity = 45;
+            seats = 45;
         }
 
         public override void QualifiedCrewCheck(Crew crew)
@@ -39,7 +41,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
     {
         public Nu150(string registrationString) : base(registrationString)
         {
-            Capacity = 75;
+            seats = 75;
         }
 
         public override void QualifiedCrewCheck(Crew crew)
