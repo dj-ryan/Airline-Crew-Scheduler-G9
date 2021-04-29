@@ -2,7 +2,7 @@
 {
     public class Airport
     {
-        public int AirportId { get; set; }
+        public int AirportID { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public Nu150Crew Nu150StandbyCrew { get; set; }

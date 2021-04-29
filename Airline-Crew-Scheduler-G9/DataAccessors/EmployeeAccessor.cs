@@ -17,7 +17,25 @@ namespace Airline_Crew_Scheduler_G9
     public class EmployeeAccessor
     {
         //Todo: Create an Employee insertion method
-        public void InsertEmployee(Employee newEmployee)
+        public void InsertCaptainEmployee(Employee newEmployee)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            {
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
+            }
+        }
+
+        public void InsertFirstOfficerEmployee(Employee newEmployee)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            {
+                connection.Query("/*StoredProcdedureCall*/");
+                return;
+            }
+        }
+
+        public void InsertFlightAttendantEmployee(Employee newEmployee)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
             {

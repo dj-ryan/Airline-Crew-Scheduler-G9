@@ -4,6 +4,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public abstract class Aircraft
     {
+        public int aircraftID { get; set; }
         public string RegistrationString { get; set; }
         public int TravelSpeed { get; set; } = 500;
         public int Capacity { get; set; }

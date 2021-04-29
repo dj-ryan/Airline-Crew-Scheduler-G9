@@ -5,7 +5,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Crew
     {
-        public int CrewId { get; set; }
+        public int CrewID { get; set; }
         public Pilot Captain { get; set; }
 
         public Pilot FirstOfficer { get; set; }
