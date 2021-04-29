@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+
 /*
 C# SQL CONNECTION GUIDE  -> https://www.youtube.com/watch?v=Et2khGnrIqc
 #Stored Procedure Tutorial -> https://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx
@@ -17,40 +19,36 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         //Todo: Create an Crew insertion method
         public void InsertCrew(Crew newCrew)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
         }
 
         //Todo: Create an Crew retreival method
         public List<Crew> RetrieveCrew()
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                var CrewList = connection.Query<Crew>("/*StoredProcdedureCall*/").ToList();
-                return CrewList;
+                throw new NotImplementedException();
             }
         }
 
         //Todo: Create an Crew Captain Update Method
         public void UpdateCrew(Crew crewToUpdate)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
         }
 
         //Todo: Create an Crew deletion Method
         public void DeleteCrew(Crew deadCrew)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
         }
     }

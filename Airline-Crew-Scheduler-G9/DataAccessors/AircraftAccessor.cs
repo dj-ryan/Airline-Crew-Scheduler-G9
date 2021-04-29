@@ -22,56 +22,63 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 
         //Todo: Create an Aircraft insertion method
         public void InsertAircraft(Aircraft newAircraft)
-        {   
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+        {
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
         }
 
-        //Todo: Create an Aircraft retreival method
-        public static DataTable RetrieveAircraft()
+        public static List<Aircraft> RetrieveAircraft()
         {
-            MySqlConnection conn;
-            string myConnectionString;
-            myConnectionString = "Server=cse.unl.edu;Port=3306;Database=atimla;Uid=atimla;Pwd=ZxAfxIqxm1;";
-            conn = new MySql.Data.MySqlClient.MySqlConnection();
-            conn.ConnectionString = myConnectionString;
-            conn.Open();
-            //Aircraft a1 = new Aircraft();
-
-            using (MySqlConnection connection = conn)
+            List<Aircraft> outAircraft;
+            outAircraft = new List<Aircraft>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                
-                //IEnumerable<string> aircraftID = connection.Query<string>("SELECT planeType FROM Airplane WHERE airplaneID = '1'");
-                MySqlCommand cmd = new MySqlCommand("SELECT planeType FROM Airplane WHERE airplaneID = '1'", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airplane", connection);
+                connection.Open();
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(dt);
-                return dt;
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    if (dataRow != null && dataRow[1].ToString() == "NU-150")
+                    {
+                        //add Nu150 to aircraft list
+                    } else if (dataRow != null && dataRow[1].ToString() == "GBR-10")
+                    {
+                        //add gbr10 to aircraft list
+                    }
+
+                    foreach (var item in dataRow.ItemArray)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+                connection.Close();
             }
-            conn.Close();
+
+            return outAircraft;
         }
 
         //Todo: Create an Aircraft Update Method
         public void UpdateAircraft(Aircraft AircraftToUpdate)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
+
         }
 
         //Todo: Create an Aircraft deletion Method
         public void DeleteAircraft(Aircraft deadAircraft)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(AccessorHelper.ConnectVal("airportDB")))
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                connection.Query("/*StoredProcdedureCall*/");
-                return;
+                throw new NotImplementedException();
             }
         }
     }
