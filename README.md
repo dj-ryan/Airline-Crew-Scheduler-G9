@@ -6,7 +6,7 @@ UML Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_195c309d-f
 
 ER Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_1ddb9d28-7b71-41b8-9734-58703909918f
 
-Database Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_c328c716-3c1b-46f1-b4d7-accea0d96238
+MVC Diagram Link: https://lucid.app/lucidchart/invitations/accept/inv_c328c716-3c1b-46f1-b4d7-accea0d96238
 
 # Airline-Crew-Scheduler
 
