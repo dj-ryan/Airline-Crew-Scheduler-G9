@@ -29,7 +29,6 @@ namespace Airline_Crew_Scheduler_G9
             {
                 ushort choice = 0;
                 Console.Clear();
-                AircraftAccessor.RetrieveAircraft();
                 Console.WriteLine("-------------------------WELCOME TO CORNHUSKER AIRWAYS CONSOLE APPLICATION-------------------------");
                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                 Console.WriteLine(" Cornhusker Airways (CHA) is a small regional airline that provides high quality flights out of\n " +
@@ -68,8 +67,7 @@ namespace Airline_Crew_Scheduler_G9
 
                                 foreach (var airport in AirportAccessor.RetrieveAirport())
                                 {
-                                    airport.Nu150StandbyCrew = new Nu150Crew(new Pilot("sam","kirchner", true, true),
-                                        new Pilot("sam", "kirchner", true, true), (FlightAttendant) null);
+                                    airport.Nu150StandbyCrew = null;
                                     Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                     Console.WriteLine(" " + airport + " Standby Crews");
 
@@ -128,7 +126,17 @@ namespace Airline_Crew_Scheduler_G9
                                 Console.WriteLine("[3]--------------------------------------Flight Information----------------------------------------");
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 WriteLineCentered("--Upcoming Flights--");
-                                //Todo: display upcoming flights
+                                if (FlightAccessor.RetrieveUpcomingFlights() != null)
+                                {
+                                    foreach (var flight in FlightAccessor.RetrieveUpcomingFlights())
+                                    {
+                                        WriteLineCentered("Flight No. " + flight.FlightNumber + " " + flight.OriginAirport +
+                                                          " --> " + flight.DestinationAirport);
+                                        Console.WriteLine("Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
+                                        Console.WriteLine("");
+                                    }
+                                }
+                                
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 WriteLineCentered("--Current Flights--");
                                 //Todo: display current flights
@@ -370,7 +378,7 @@ namespace Airline_Crew_Scheduler_G9
                                                         Console.WriteLine("===================================================================================================");
                                                         
                                                         invalidChoice = true;
-                                                        while (input != "5" && input != "6" && invalidChoice)
+                                                        while (input != "q" && input != "r" && invalidChoice)
                                                         {
                                                             Aircraft aircraft = null;
                                                             input = Console.ReadLine();
@@ -426,48 +434,84 @@ namespace Airline_Crew_Scheduler_G9
 
                                                                     if (ushort.TryParse(input, out choice))
                                                                     {
-                                                                        
+
                                                                         invalidChoice = false;
                                                                         if (choice > aircraft.seats)
                                                                         {
                                                                             invalidChoice = true;
-                                                                            Console.Write("Too many passengers. Please enter a smaller number: ");
+                                                                            Console.Write(
+                                                                                "Too many passengers. Please enter a smaller number: ");
                                                                         }
                                                                         else
                                                                         {
                                                                             passengerCount = choice;
                                                                         }
-                                                                        
+
                                                                     }
                                                                     else
                                                                     {
-                                                                        Console.Write("Input is invalid. Please enter a positive integer: ");
+                                                                        Console.Write(
+                                                                            "Input is invalid. Please enter a positive integer: ");
                                                                     }
 
                                                                     if (!invalidChoice)
                                                                     {
                                                                         Console.Clear();
-                                                                        Console.WriteLine("===================================================================================================");
-                                                                        Console.WriteLine("[4]--------------------------------------Schedule A Flight!----------------------------------------");
-                                                                        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+                                                                        Console.WriteLine(
+                                                                            "===================================================================================================");
+                                                                        Console.WriteLine(
+                                                                            "[4]--------------------------------------Schedule A Flight!----------------------------------------");
+                                                                        Console.WriteLine(
+                                                                            "---------------------------------------------------------------------------------------------------");
                                                                         if (originAirport != null)
-                                                                            WriteLineCentered("ORIGIN: " + originAirport.City + ", " + originAirport.State);
+                                                                            WriteLineCentered("ORIGIN: " +
+                                                                                originAirport.City + ", " +
+                                                                                originAirport.State);
                                                                         if (destinationAirport != null)
-                                                                            WriteLineCentered("DESTINATION: " + destinationAirport.City + ", " + destinationAirport.State);
-                                                                        WriteLineCentered("DATE: " + scheduledDateTime.ToLongDateString());
-                                                                        WriteLineCentered("TIME: " + scheduledDateTime.ToLongTimeString());
+                                                                            WriteLineCentered("DESTINATION: " +
+                                                                                destinationAirport.City + ", " +
+                                                                                destinationAirport.State);
+                                                                        WriteLineCentered("DATE: " +
+                                                                            scheduledDateTime.ToLongDateString());
+                                                                        WriteLineCentered("TIME: " +
+                                                                            scheduledDateTime.ToLongTimeString());
+                                                                        WriteLineCentered("AIRCRAFT TYPE: " +
+                                                                            aircraft.planeType);
+                                                                        WriteLineCentered("PASSENGERS: " +
+                                                                            passengerCount);
 
-                                                                        WriteLineCentered("AIRCRAFT TYPE: " + aircraft.planeType);
+                                                                        Console.WriteLine("Now enter (1) to confirm. ");
 
-
-
-                                                                        WriteLineCentered("PASSENGERS: " + passengerCount );
-
-                                                                        Console.WriteLine("---------------------------------------------------------------------------------------------------");
-                                                                        Console.WriteLine("ENTER (q) TO RETURN TO HOME PAGE");
+                                                                        Console.WriteLine(
+                                                                            "---------------------------------------------------------------------------------------------------");
+                                                                        Console.WriteLine(
+                                                                            "ENTER (q) TO RETURN TO HOME PAGE");
                                                                         Console.WriteLine("ENTER (r) TO RESTART");
-                                                                        Console.WriteLine("===================================================================================================");
-                                                                        input = Console.ReadLine();
+                                                                        Console.WriteLine(
+                                                                            "===================================================================================================");
+
+                                                                        Console.Write("Enter: ");
+                                                                        invalidChoice = true;
+                                                                        while (input != "q" && input != "r" &&
+                                                                               invalidChoice)
+                                                                        {
+                                                                            input = Console.ReadLine();
+                                                                            invalidChoice = false;
+                                                                            switch (input)
+                                                                            {
+                                                                                case "1":
+                                                                                    //add to database
+                                                                                    break;
+                                                                                case "q":
+                                                                                    break;
+                                                                                case "r":
+                                                                                    break;
+                                                                                default:
+                                                                                    invalidChoice = true;
+                                                                                    Console.Write("Please enter a valid choice: ");
+                                                                                    break;
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }

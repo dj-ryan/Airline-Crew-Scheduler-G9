@@ -3,10 +3,17 @@
     public class Employee
     {
 
-        public string employeeID { get; set; }
+        public int EmployeeID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
 
+        protected Employee(int employeeID, string firstName, string lastName)
+        {
+            EmployeeID = employeeID;
+            FirstName = firstName;
+            LastName = lastName;
+
+        }
         public override string ToString()
         {
             return FirstName + " " + LastName;
@@ -18,10 +25,8 @@
         public bool QualifiedForGbr10 { get; set; }
         public bool QualifiedForNu150 { get; set; }
 
-        public Pilot(string firstName, string lastName, bool qualifiedForGbr10, bool qualifiedForNu150)
+        public Pilot(int employeeID, string firstName, string lastName, bool qualifiedForGbr10, bool qualifiedForNu150) : base(employeeID, firstName, lastName)
         {
-            FirstName = firstName;
-            LastName = lastName;
             QualifiedForGbr10 = qualifiedForGbr10;
             QualifiedForNu150 = qualifiedForNu150;
         }
@@ -29,12 +34,12 @@
 
     public class FlightAttendant : Employee
     {
-        public FlightAttendant(string lastName, string firstName)
+        public FlightAttendant(int employeeID, string firstName, string lastName) : base(employeeID, firstName,
+            lastName)
         {
-            LastName = lastName;
-            FirstName = firstName;
 
         }
+
 
     }
 

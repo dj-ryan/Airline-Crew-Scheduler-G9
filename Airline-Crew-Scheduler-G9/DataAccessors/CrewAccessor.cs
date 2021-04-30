@@ -25,7 +25,53 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             }
         }
 
-        //Todo: Create an Crew retreival method
+        public static Crew RetrieveCrew(int crewID)
+        {
+            var outCrews = new List<Crew>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT crewID, captain, firstOfficer, flightAttendant1, flightAttendant2 FROM Crew WHERE crewID = @crewID", connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("crewID", crewID);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+
+                    Employee captain = EmployeeAccessor.RetrieveEmployee((int) itemsArray[1]);
+                    Employee firstOfficer = EmployeeAccessor.RetrieveEmployee((int) itemsArray[2]);
+                    var flightAttendants = new List<FlightAttendant>();
+
+                    Employee flightAttendant1 = EmployeeAccessor.RetrieveEmployee((int)itemsArray[3]);
+                    if (flightAttendant1 != null)
+                    {
+                        flightAttendants.Add((FlightAttendant) flightAttendant1);
+                    }
+
+                    Employee flightAttendant2 = EmployeeAccessor.RetrieveEmployee((int)itemsArray[3]);
+                    if (flightAttendant2 != null)
+                    {
+                        flightAttendants.Add((FlightAttendant) flightAttendant2);
+                    }
+
+                    Crew c = new Crew((Pilot) captain, (Pilot) firstOfficer, flightAttendants);
+                    outCrews.Add(c);
+
+                }
+                connection.Close();
+            }
+
+            if (outCrews.Count == 0)
+            {
+                return null;
+            }
+            return outCrews[0];
+        }
+
         public List<Crew> RetrieveCrew()
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())

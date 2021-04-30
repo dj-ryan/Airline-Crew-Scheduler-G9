@@ -17,8 +17,6 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 {
     public class AirportAccessor
     {
-
-        //Todo: db Airport insertion method
         public void InsertAirport(Airport newAirport)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
@@ -32,7 +30,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport", connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -56,7 +54,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport WHERE city = @city AND state = @state", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport WHERE city = @city AND state = @state", connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("city", city);
                 cmd.Parameters.AddWithValue("state", state);
@@ -74,7 +72,42 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 connection.Close();
             }
 
+            if (outAirports.Count == 0)
+            {
+                return null;
+            }
             return outAirports[0];
+            
+        }
+
+        public static Airport RetrieveAirport(int airportID)
+        {
+            var outAirports = new List<Airport>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport WHERE airportID = @airportID", connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("airportID", airportID);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    outAirports.Add(ap);
+                }
+                connection.Close();
+            }
+
+            if (outAirports.Count == 0)
+            {
+                return null;
+            }
+            return outAirports[0];
+
         }
 
         //Todo: db Airport update method

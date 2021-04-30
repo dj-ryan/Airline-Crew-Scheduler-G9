@@ -49,6 +49,7 @@
     <Compile Include="DataAccessors\CrewAccessor.cs" />
     <Compile Include="DataAccessors\EmployeeAccessor.cs" />
     <Compile Include="DataAccessors\FlightAccessor.cs" />
+    <Compile Include="DataAccessors\FlightTimeAccessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Tests\AircraftTester.cs" />
     <Compile Include="Tests\AirportTester.cs" />
