@@ -31,8 +31,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 
         public static List<Aircraft> RetrieveAircraft()
         {
-            List<Aircraft> outAircraft;
-            outAircraft = new List<Aircraft>();
+            var outAircraft = new List<Aircraft>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airplane", connection);
@@ -44,18 +43,66 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 
                 foreach (DataRow dataRow in dt.Rows)
                 {
-                    if (dataRow != null && dataRow[1].ToString() == "NU-150")
+                    var itemsArray = dataRow.ItemArray;
+                    if (itemsArray[1] != null && string.Equals(itemsArray[1].ToString(), "NU-150", StringComparison.OrdinalIgnoreCase))
                     {
-                        //add Nu150 to aircraft list
-                    } else if (dataRow != null && dataRow[1].ToString() == "GBR-10")
+                        Aircraft nu = new Nu150(int.Parse(itemsArray[0].ToString()), itemsArray[2].ToString());
+                        outAircraft.Add(nu);
+                    } else if (itemsArray[1] != null && string.Equals(itemsArray[1].ToString(), "GBR-10", StringComparison.OrdinalIgnoreCase))
                     {
-                        //add gbr10 to aircraft list
+                        Aircraft gbr = new Gbr10(int.Parse(itemsArray[0].ToString()), itemsArray[2].ToString());
+                        outAircraft.Add(gbr);
                     }
 
-                    foreach (var item in dataRow.ItemArray)
-                    {
-                        Console.WriteLine(item);
-                    }
+                }
+                connection.Close();
+            }
+
+            return outAircraft;
+        }
+
+        public static List<Aircraft> RetrieveGbr10Aircraft()
+        {
+            var outAircraft = new List<Aircraft>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airplane WHERE planeType = 'GBR-10'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Aircraft gbr = new Gbr10(int.Parse(itemsArray[0].ToString()), itemsArray[2].ToString());
+                    outAircraft.Add(gbr);
+
+                }
+                connection.Close();
+            }
+
+            return outAircraft;
+        }
+
+        public static List<Aircraft> RetrieveNu150Aircraft()
+        {
+            var outAircraft = new List<Aircraft>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airplane WHERE planeType = 'NU-150'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Aircraft nu = new Nu150(int.Parse(itemsArray[0].ToString()), itemsArray[2].ToString());
+                    outAircraft.Add(nu);
                 }
                 connection.Close();
             }

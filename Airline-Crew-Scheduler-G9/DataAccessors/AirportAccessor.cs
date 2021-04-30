@@ -27,13 +27,54 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             }
         }
 
-        //Todo: db Airport retrieval method
-        public List<Airport> RetrieveAirport()
+        public static List<Airport> RetrieveAirport()
         {
+            var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                throw new NotImplementedException();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    outAirports.Add(ap);
+                }
+                connection.Close();
             }
+
+            return outAirports;
+        }
+        
+        public static Airport RetrieveAirport(string city, string state)
+        {
+            var outAirports = new List<Airport>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport WHERE city = @city AND state = @state", connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("city", city);
+                cmd.Parameters.AddWithValue("state", state);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    outAirports.Add(ap);
+                }
+                connection.Close();
+            }
+
+            return outAirports[0];
         }
 
         //Todo: db Airport update method

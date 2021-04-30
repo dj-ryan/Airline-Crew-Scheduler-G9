@@ -41,6 +41,11 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
             FirstOfficer = firstOfficer;
             FlightAttendants = flightAttendants;
         }
+
+        public override string ToString()
+        {
+            return "\t\t\tCaptain: " + Captain + "\n\t\t\tFirst Officer: " + FirstOfficer;
+        }
     }
 
     public class Gbr10Crew : Crew
@@ -88,5 +93,6 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
                 throw new ArgumentException("Crew not Qualified");
             }
         }
+
     }
 }

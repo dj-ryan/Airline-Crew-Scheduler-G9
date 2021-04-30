@@ -10,18 +10,20 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         public int speed { get; set; } = 500;
         public int seats { get; set; }
 
-        protected Aircraft(string registrationString)
+        protected Aircraft(int airplaneID, string registrationNo)
         {
-            registrationNo = registrationString;
+            this.airplaneID = airplaneID;
+            this.registrationNo = registrationNo;
         }
         public abstract void QualifiedCrewCheck(Crew crew); //checks whether a crew is qualified for the aircraft
     }
 
     public class Gbr10 : Aircraft
     {
-        public Gbr10(string registrationString) : base(registrationString)
+        public Gbr10(int airplaneID, string registrationNo) : base(airplaneID, registrationNo)
         {
             seats = 45;
+            planeType = "GBR-10";
         }
 
         public override void QualifiedCrewCheck(Crew crew)
@@ -39,9 +41,10 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 
     public class Nu150 : Aircraft
     {
-        public Nu150(string registrationString) : base(registrationString)
+        public Nu150(int airplaneID, string registrationNo) : base(airplaneID, registrationNo)
         {
             seats = 75;
+            planeType = "NU-150";
         }
 
         public override void QualifiedCrewCheck(Crew crew)

@@ -14,6 +14,11 @@
             City = city;
             State = state;
         }
-        
+
+        public override string ToString()
+        {
+            return City + ", " + State;
+        }
+
     }
 }
