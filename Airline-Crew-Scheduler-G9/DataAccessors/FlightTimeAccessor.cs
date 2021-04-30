@@ -28,7 +28,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 {
                     var itemsArray = dataRow.ItemArray;
                     //may not work vvv
-                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse(itemsArray[1] as string), DateTime.Parse(itemsArray[2] as string), DateTime.Parse(itemsArray[4] as string), DateTime.Parse(itemsArray[5] as string));
+                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse((string) itemsArray[1]));
                     outFlightTime.Add(d);
                 }
                 connection.Close();
