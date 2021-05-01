@@ -48,18 +48,12 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
 
                 foreach (DataRow dataRow in dt.Rows)
                 {
+                    Employee emp;
                     var itemsArray = dataRow.ItemArray;
-                    if ((bool) itemsArray[3])
-                    {
-                        Employee e = new Pilot((int) itemsArray[0], (string) itemsArray[1], (string)itemsArray[2], (bool)itemsArray[4], (bool)itemsArray[5]);
-                        outEmployees.Add(e);
-                    }
-                    else
-                    {
-                        Employee e = new FlightAttendant((int) itemsArray[0], (string) itemsArray[1], (string) itemsArray[2]);
-                        outEmployees.Add(e);
-                    }
-
+                    emp = new Employee(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString(),
+                                                bool.Parse(itemsArray[4].ToString()),
+                                                bool.Parse(itemsArray[5].ToString()));
+                    outEmployees.Add(emp);
                 }
                 connection.Close();
             }
@@ -81,8 +75,6 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Employee deletion Method
-
-
         public void DeleteEmployee(Employee deadEmployee)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())

@@ -144,7 +144,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: db Nu150StandByCrew update method
-        public void UpdateNu150StandByCrew(Airport airportToUpdate , Nu150Crew freshCrew)
+        public void UpdateNu150StandByCrew(Airport airportToUpdate, Nu150Crew freshCrew)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {

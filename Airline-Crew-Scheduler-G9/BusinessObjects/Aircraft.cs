@@ -30,7 +30,7 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         {
             try
             {
-                var gCrew = new Gbr10Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
+                var gCrew = new Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
             }
             catch
             {
@@ -51,9 +51,9 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         {
             try
             {
-                var nCrew = new Nu150Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
+                var nCrew = new Crew(crew.Captain, crew.FirstOfficer, crew.FlightAttendants);
             }
-            catch 
+            catch
             {
                 throw new ArgumentException("This crew is not qualified for this aircraft.");
             }

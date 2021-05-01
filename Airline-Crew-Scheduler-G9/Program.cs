@@ -64,7 +64,7 @@ namespace Airline_Crew_Scheduler_G9
                                 Console.WriteLine("[1]--------------------------------------Crew Information------------------------------------------");
                                 WriteLineCentered("Our incredible flight team consists of 16 crews! Each includes a qualified captain and");
                                 WriteLineCentered("copilot as well as up to two flight attendants.");
-
+                                
                                 foreach (var airport in AirportAccessor.RetrieveAirport())
                                 {
                                     //airport.Nu150StandbyCrewID = 0;
@@ -75,7 +75,12 @@ namespace Airline_Crew_Scheduler_G9
                                     Console.WriteLine("  GBR-10 Main Crew:");
                                     if (airport.Gbr10MainCrewID != 0)
                                     {
-                                        Console.WriteLine("   Crew ID: " + airport.Gbr10MainCrewID);
+                                        var crew = CrewAccessor.RetrieveCrew(airport.Gbr10MainCrewID);
+                                        var cap = EmployeeAccessor.RetrieveEmployee(crew.Captain);
+                                        var fo = EmployeeAccessor.RetrieveEmployee(crew.FirstOfficer);
+                                        var fa1 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant1);
+                                        Console.WriteLine("   Captain: " + cap.LastName + "; First Officer: " + fo.LastName + 
+                                                          "; Flight Attendant 1: " + fa1.LastName);
                                     }
                                     else
                                     {
@@ -86,7 +91,13 @@ namespace Airline_Crew_Scheduler_G9
 
                                     if (airport.Nu150MainCrewID != 0)
                                     {
-                                        Console.WriteLine("   Crew ID: " + airport.Nu150MainCrewID);
+                                        var crew = CrewAccessor.RetrieveCrew(airport.Nu150MainCrewID);
+                                        var cap = EmployeeAccessor.RetrieveEmployee(crew.Captain);
+                                        var fo = EmployeeAccessor.RetrieveEmployee(crew.FirstOfficer);
+                                        var fa1 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant1);
+                                        var fa2 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant2);
+                                        Console.WriteLine("   Captain: " + cap.LastName + "; First Officer: " + fo.LastName +
+                                                          "; Flight Attendant 1: " + fa1.LastName + "; Flight Attendant 2: " + fa2.LastName);
                                     }
                                     else
                                     {
@@ -95,7 +106,12 @@ namespace Airline_Crew_Scheduler_G9
                                     Console.WriteLine("  GBR-10 Standby Crew:");
                                     if (airport.Gbr10StandbyCrewID != 0)
                                     {
-                                        Console.WriteLine("   Crew ID: " + airport.Gbr10StandbyCrewID);
+                                        var crew = CrewAccessor.RetrieveCrew(airport.Gbr10StandbyCrewID);
+                                        var cap = EmployeeAccessor.RetrieveEmployee(crew.Captain);
+                                        var fo = EmployeeAccessor.RetrieveEmployee(crew.FirstOfficer);
+                                        var fa1 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant1);
+                                        Console.WriteLine("   Captain: " + cap.LastName + "; First Officer: " + fo.LastName +
+                                                          "; Flight Attendant 1: " + fa1.LastName);
                                     }
                                     else
                                     {
@@ -105,8 +121,14 @@ namespace Airline_Crew_Scheduler_G9
                                     Console.WriteLine("  NU-150 Standby Crew:");
 
                                     if (airport.Nu150StandbyCrewID != 0)
-                                    {
-                                        Console.WriteLine("   Crew ID: " + airport.Nu150StandbyCrewID);
+                                    { 
+                                        var crew = CrewAccessor.RetrieveCrew(airport.Nu150StandbyCrewID);
+                                        var cap = EmployeeAccessor.RetrieveEmployee(crew.Captain);
+                                        var fo = EmployeeAccessor.RetrieveEmployee(crew.FirstOfficer);
+                                        var fa1 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant1);
+                                        var fa2 = EmployeeAccessor.RetrieveEmployee(crew.FlightAttendant2);
+                                        Console.WriteLine("   Captain: " + cap.LastName + "; First Officer: " + fo.LastName +
+                                                          "; Flight Attendant 1: " + fa1.LastName + "; Flight Attendant 2: " + fa2.LastName);
                                     }
                                     else
                                     {
