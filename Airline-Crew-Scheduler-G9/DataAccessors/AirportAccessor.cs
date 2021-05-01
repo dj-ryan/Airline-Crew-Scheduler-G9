@@ -30,7 +30,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport", connection);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -40,7 +40,9 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 foreach (DataRow dataRow in dt.Rows)
                 {
                     var itemsArray = dataRow.ItemArray;
-                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString(),
+                                                       int.Parse(itemsArray[3].ToString()), int.Parse(itemsArray[4].ToString()),
+                                                       int.Parse(itemsArray[5].ToString()), int.Parse(itemsArray[6].ToString()));
                     outAirports.Add(ap);
                 }
                 connection.Close();
@@ -66,7 +68,9 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 foreach (DataRow dataRow in dt.Rows)
                 {
                     var itemsArray = dataRow.ItemArray;
-                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString(),
+                                                       int.Parse(itemsArray[3].ToString()), int.Parse(itemsArray[4].ToString()),
+                                                       int.Parse(itemsArray[5].ToString()), int.Parse(itemsArray[6].ToString()));
                     outAirports.Add(ap);
                 }
                 connection.Close();
@@ -96,7 +100,9 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 foreach (DataRow dataRow in dt.Rows)
                 {
                     var itemsArray = dataRow.ItemArray;
-                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString());
+                    Airport ap = new Airport(int.Parse(itemsArray[0].ToString()), itemsArray[1].ToString(), itemsArray[2].ToString(),
+                                                       int.Parse(itemsArray[3].ToString()), int.Parse(itemsArray[4].ToString()),
+                                                       int.Parse(itemsArray[5].ToString()), int.Parse(itemsArray[6].ToString()));
                     outAirports.Add(ap);
                 }
                 connection.Close();
