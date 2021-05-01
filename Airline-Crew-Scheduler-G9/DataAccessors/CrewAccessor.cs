@@ -41,18 +41,14 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 foreach (DataRow dataRow in dt.Rows)
                 {
                     var itemsArray = dataRow.ItemArray;
-                    Crew c;
-                    //Employee captain = EmployeeAccessor.RetrieveEmployee((int) itemsArray[1]);
-                    //Employee firstOfficer = EmployeeAccessor.RetrieveEmployee((int) itemsArray[2]);
-                    //var flightAttendants = new List<FlightAttendant>();
-                    //Employee flightAttendant1 = EmployeeAccessor.RetrieveEmployee((int)itemsArray[3]);
+                    Crew c;;
                     int captain = int.Parse(itemsArray[1].ToString());
                     int firstOfficer = int.Parse(itemsArray[2].ToString());
                     int flightAttendant1 = int.Parse(itemsArray[3].ToString());
                     int flightAttendant2 = int.Parse(itemsArray[4].ToString());
                     if (flightAttendant2 != 0)
                     {
-                        c = new Crew(captain, firstOfficer, flightAttendant1, flightAttendant2);//, flightAttendant2);
+                        c = new Crew(captain, firstOfficer, flightAttendant1, flightAttendant2);
                     }
                     else
                     {

@@ -28,10 +28,10 @@
     //    public bool QualifiedForGbr10 { get; set; }
     //    public bool QualifiedForNu150 { get; set; }
 
-    //    public Pilot(int employeeID, string firstName, string lastName, bool qualifiedForGbr10, bool qualifiedForNu150) 
+    //    public Pilot(int employeeID, string firstName, string lastName, bool qualifiedForGbr10, bool qualifiedForNu150)
     //    {
     //        QualifiedForGbr10 = qualifiedForGbr10;
-    //        QualifiedForNu150= qualifiedForNu150;
+    //        QualifiedForNu150 = qualifiedForNu150;
     //    }
     //}
 
