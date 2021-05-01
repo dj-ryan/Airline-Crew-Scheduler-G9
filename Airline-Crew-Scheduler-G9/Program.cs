@@ -62,31 +62,51 @@ namespace Airline_Crew_Scheduler_G9
                                 Console.Clear();
                                 Console.WriteLine("===================================================================================================");
                                 Console.WriteLine("[1]--------------------------------------Crew Information------------------------------------------");
-                                WriteLineCentered("Our incredible flight team consists of 8 crews! Each includes a qualified captain and");
+                                WriteLineCentered("Our incredible flight team consists of 16 crews! Each includes a qualified captain and");
                                 WriteLineCentered("copilot as well as up to two flight attendants.");
 
                                 foreach (var airport in AirportAccessor.RetrieveAirport())
                                 {
-                                    airport.Nu150StandbyCrew = null;
+                                    //airport.Nu150StandbyCrewID = 0;
+                                    //airport.nu150CertifiedCrewList = null;
                                     Console.WriteLine("---------------------------------------------------------------------------------------------------");
-                                    Console.WriteLine(" " + airport + " Standby Crews");
+                                    Console.WriteLine(" " + airport + " Crew List");
 
-                                    Console.WriteLine("  GBR-10 Crew:");
-
-                                    if (airport.Gbr10StandbyCrew != null)
+                                    Console.WriteLine("  GBR-10 Main Crew:");
+                                    if (airport.Gbr10MainCrewID != 0)
                                     {
-                                        Console.WriteLine("     " + airport.Gbr10StandbyCrew);
+                                        Console.WriteLine("   Crew ID: " + airport.Gbr10MainCrewID);
                                     }
                                     else
                                     {
                                         Console.WriteLine("\t\t\tNo current Standby Crew...");
                                     }
 
-                                    Console.WriteLine("  NU-150 Crew:");
+                                    Console.WriteLine("  NU-150 Main Crew:");
 
-                                    if (airport.Nu150StandbyCrew != null)
+                                    if (airport.Nu150MainCrewID != 0)
                                     {
-                                        Console.WriteLine("     " + airport.Nu150StandbyCrew);
+                                        Console.WriteLine("   Crew ID: " + airport.Nu150MainCrewID);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\t\t\tNo current Standby Crew...");
+                                    }
+                                    Console.WriteLine("  GBR-10 Standby Crew:");
+                                    if (airport.Gbr10StandbyCrewID != 0)
+                                    {
+                                        Console.WriteLine("   Crew ID: " + airport.Gbr10StandbyCrewID);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("\t\t\tNo current Standby Crew...");
+                                    }
+
+                                    Console.WriteLine("  NU-150 Standby Crew:");
+
+                                    if (airport.Nu150StandbyCrewID != 0)
+                                    {
+                                        Console.WriteLine("   Crew ID: " + airport.Nu150StandbyCrewID);
                                     }
                                     else
                                     {
@@ -132,7 +152,7 @@ namespace Airline_Crew_Scheduler_G9
                                     {
                                         WriteLineCentered("Flight No. " + flight.FlightNumber + " " + flight.OriginAirport +
                                                           " --> " + flight.DestinationAirport);
-                                        Console.WriteLine("Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
+                                        Console.WriteLine("                             Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
                                         Console.WriteLine("");
                                     }
                                 }
