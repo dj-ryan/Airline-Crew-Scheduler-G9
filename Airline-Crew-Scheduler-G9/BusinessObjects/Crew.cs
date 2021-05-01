@@ -1,41 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Airline_Crew_Scheduler_G9.DataAccessors;
 namespace Airline_Crew_Scheduler_G9.BusinessObjects
 {
     public class Crew
     {
         public int CrewId { get; set; }
-        public Pilot Captain { get; set; }
+        public int Captain { get; set; }
 
-        public Pilot FirstOfficer { get; set; }
+        public int FirstOfficer { get; set; }
+        public int FlightAttendant1 { get; set; }
+        public int FlightAttendant2 { get; set; }
 
-        public List<FlightAttendant> FlightAttendants { get; set; }
+        public List<Employee> FlightAttendants { get; set; }
 
-        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant)
+        public Crew(int captain, int firstOfficer, int flightAttendant)
         {
             Captain = captain;
             FirstOfficer = firstOfficer;
-            var attendants = new List<FlightAttendant>()
-            {
-                flightAttendant
-            };
-            FlightAttendants = attendants;
+            FlightAttendant1 = flightAttendant;
         }
-        public Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
-            FlightAttendant flightAttendant2)
+        public Crew(int captain, int firstOfficer, int flightAttendant1,
+            int flightAttendant2)
         {
             Captain = captain;
             FirstOfficer = firstOfficer;
-            var attendants = new List<FlightAttendant>()
-            {
-                flightAttendant1,
-                flightAttendant2
-            };
-            FlightAttendants = attendants;
+            FlightAttendant1 = flightAttendant1;
+            FlightAttendant2 = flightAttendant2;
         }
 
-        public Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants)
+        public Crew(int captain, int firstOfficer, List<Employee> flightAttendants)
         {
             Captain = captain;
             FirstOfficer = firstOfficer;
@@ -50,18 +44,20 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 
     public class Gbr10Crew : Crew
     {
-        public Gbr10Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant) : base(captain, firstOfficer, flightAttendant)
+        public Gbr10Crew(int captain, int firstOfficer, int flightAttendant) : base(captain, firstOfficer, flightAttendant)
         {
             QualificationCheck(captain, firstOfficer);
         }
-        public Gbr10Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants) : base(captain, firstOfficer, flightAttendants)
+        public Gbr10Crew(int captain, int firstOfficer, List<Employee> flightAttendants) : base(captain, firstOfficer, flightAttendants)
         {
             QualificationCheck(captain, firstOfficer);
         }
 
-        private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
+        private static void QualificationCheck(int captain, int firstOfficer)
         {
-            if (captain.QualifiedForGbr10 == false || firstOfficer.QualifiedForGbr10 == false)
+            var cap = EmployeeAccessor.RetrieveEmployee(captain);
+            var fo = EmployeeAccessor.RetrieveEmployee(firstOfficer);
+            if (cap.Gbr10Certification == false || fo.Gbr10Certification == false)
             {
                 throw new ArgumentException("Crew not Qualified");
             }
@@ -70,25 +66,27 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
 
     public class Nu150Crew : Crew
     {
-        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant) : base(captain, firstOfficer, flightAttendant)
+        public Nu150Crew(int captain, int firstOfficer, int flightAttendant) : base(captain, firstOfficer, flightAttendant)
         {
             QualificationCheck(captain, firstOfficer);
-            
+
         }
-        public Nu150Crew(Pilot captain, Pilot firstOfficer, FlightAttendant flightAttendant1,
-            FlightAttendant flightAttendant2) : base(captain, firstOfficer, flightAttendant1, flightAttendant2)
+        public Nu150Crew(int captain, int firstOfficer, int flightAttendant1,
+            int flightAttendant2) : base(captain, firstOfficer, flightAttendant1, flightAttendant2)
         {
             QualificationCheck(captain, firstOfficer);
-            
+
         }
-        public Nu150Crew(Pilot captain, Pilot firstOfficer, List<FlightAttendant> flightAttendants) : base(captain, firstOfficer, flightAttendants)
+        public Nu150Crew(int captain, int firstOfficer, List<Employee> flightAttendants) : base(captain, firstOfficer, flightAttendants)
         {
-            QualificationCheck(captain, firstOfficer);
+           QualificationCheck(captain, firstOfficer);
         }
 
-        private static void QualificationCheck(Pilot captain, Pilot firstOfficer)
+        private static void QualificationCheck(int captain, int firstOfficer)
         {
-            if (captain.QualifiedForNu150 == false || firstOfficer.QualifiedForNu150 == false)
+            var cap = EmployeeAccessor.RetrieveEmployee(captain);
+            var fo = EmployeeAccessor.RetrieveEmployee(firstOfficer);
+            if (cap.Nu150Certification == false || fo.Nu150Certification == false)
             {
                 throw new ArgumentException("Crew not Qualified");
             }
