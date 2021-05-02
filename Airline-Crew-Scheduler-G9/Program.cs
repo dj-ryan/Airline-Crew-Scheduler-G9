@@ -168,22 +168,64 @@ namespace Airline_Crew_Scheduler_G9
                                 Console.WriteLine("[3]--------------------------------------Flight Information----------------------------------------");
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 WriteLineCentered("--Upcoming Flights--");
+
                                 if (FlightAccessor.RetrieveUpcomingFlights() != null)
                                 {
                                     foreach (var flight in FlightAccessor.RetrieveUpcomingFlights())
                                     {
                                         WriteLineCentered("Flight No. " + flight.FlightNumber + " " + flight.OriginAirport +
                                                           " --> " + flight.DestinationAirport);
+                                        Console.WriteLine("");
                                         Console.WriteLine("                             Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
+                                        Console.WriteLine("                             Estimated Depature : " + flight.Flightlog.EstimatedTakeoffTime);
+                                        Console.WriteLine("                             Arrival Scheduled: : " + flight.Flightlog.ScheduledTouchdownTime);
+                                        Console.WriteLine("                             Estimated Arrival  : " + flight.Flightlog.EstimatedTouchdownTime);
                                         Console.WriteLine("");
                                     }
                                 }
                                 
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 WriteLineCentered("--Current Flights--");
+
+                                
                                 //Todo: display current flights
+                                
+                                if (FlightAccessor.RetrieveCurrentFlights() != null)
+                                {
+                                    foreach (var flight in FlightAccessor.RetrieveCurrentFlights())
+                                    {
+                                        WriteLineCentered("Flight No. " + flight.FlightNumber + " " + flight.OriginAirport +
+                                                          " --> " + flight.DestinationAirport);
+                                        Console.WriteLine("");
+                                        Console.WriteLine("                             Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
+                                        Console.WriteLine("                             Estimated Depature : " + flight.Flightlog.EstimatedTakeoffTime);
+                                        Console.WriteLine("                             Actual Depature    : " + flight.Flightlog.ActualTakeoffTime);
+                                        Console.WriteLine("                             Arrival Scheduled: : " + flight.Flightlog.ScheduledTouchdownTime);
+                                        Console.WriteLine("                             Estimated Arrival  : " + flight.Flightlog.EstimatedTouchdownTime);
+                                        Console.WriteLine("");
+                                    }
+                                }
+                                
+
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 WriteLineCentered("--Completed Flights--");
+
+                                if (FlightAccessor.RetrieveCompletedFlights() != null)
+                                {
+                                    foreach (var flight in FlightAccessor.RetrieveCompletedFlights())
+                                    {
+                                        WriteLineCentered("Flight No. " + flight.FlightNumber + " " + flight.OriginAirport +
+                                                          " --> " + flight.DestinationAirport);
+                                        Console.WriteLine("");
+                                        Console.WriteLine("                             Departure Scheduled: " + flight.Flightlog.ScheduledTakeoffTime);
+                                        Console.WriteLine("                             Estimated Depature : " + flight.Flightlog.EstimatedTakeoffTime);
+                                        Console.WriteLine("                             Actual Depature    : " + flight.Flightlog.ActualTakeoffTime);
+                                        Console.WriteLine("                             Arrival Scheduled: : " + flight.Flightlog.ScheduledTouchdownTime);
+                                        Console.WriteLine("                             Estimated Arrival  : " + flight.Flightlog.EstimatedTouchdownTime);
+                                        Console.WriteLine("                             Actual Arrival     : " + flight.Flightlog.ActualTouchdownTime);
+                                        Console.WriteLine("");
+                                    }
+                                }
                                 //Todo: display completed flights
                                 Console.WriteLine("---------------------------------------------------------------------------------------------------");
                                 Console.WriteLine("ENTER (q) TO RETURN TO HOME PAGE");

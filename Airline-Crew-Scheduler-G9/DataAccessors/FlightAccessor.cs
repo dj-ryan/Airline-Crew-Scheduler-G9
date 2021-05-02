@@ -68,6 +68,8 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             return outFlights;
         }
 
+
+
         //Todo: Create db Flight complete update general method
         public void UpdateFlight()
         {
@@ -97,12 +99,38 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create db Current Flight Retreival Method
-        public List<Flight> RetrieveCurrentFlights()
+        public static List<Flight> RetrieveCurrentFlights()
         {
+            var outFlights = new List<Flight>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                throw new NotImplementedException();
+                MySqlCommand cmd = new MySqlCommand("SELECT flightID, aircraft, crewList, origin, destination, flightTime, passengerCount FROM Flight WHERE flightStatus = 'current'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Aircraft aircraft = AircraftAccessor.RetrieveAircraft((int)itemsArray[1]);
+                    Crew crew = CrewAccessor.RetrieveCrew((int)itemsArray[2]);
+                    Airport origin = AirportAccessor.RetrieveAirport((int)itemsArray[3]);
+                    Airport destination = AirportAccessor.RetrieveAirport((int)itemsArray[4]);
+                    FlightTime flightTime = FlightTimeAccessor.RetrieveFlightTime((int)itemsArray[5]);
+
+                    outFlights.Add(new Flight((int)itemsArray[0], aircraft, crew, origin, destination, flightTime, (int)itemsArray[6]));
+
+                }
+                connection.Close();
             }
+
+            if (outFlights.Count == 0)
+            {
+                return null;
+            }
+            return outFlights;
         }
 
         //Todo: Create db ActualTouchdownTime update method
@@ -115,12 +143,38 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create db Completed Flight Retreival Method
-        public List<Flight> RetrieveCompletedFlights()
+        public static List<Flight> RetrieveCompletedFlights()
         {
+            var outFlights = new List<Flight>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                throw new NotImplementedException();
+                MySqlCommand cmd = new MySqlCommand("SELECT flightID, aircraft, crewList, origin, destination, flightTime, passengerCount FROM Flight WHERE flightStatus = 'completed'", connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    Aircraft aircraft = AircraftAccessor.RetrieveAircraft((int)itemsArray[1]);
+                    Crew crew = CrewAccessor.RetrieveCrew((int)itemsArray[2]);
+                    Airport origin = AirportAccessor.RetrieveAirport((int)itemsArray[3]);
+                    Airport destination = AirportAccessor.RetrieveAirport((int)itemsArray[4]);
+                    FlightTime flightTime = FlightTimeAccessor.RetrieveFlightTime((int)itemsArray[5]);
+
+                    outFlights.Add(new Flight((int)itemsArray[0], aircraft, crew, origin, destination, flightTime, (int)itemsArray[6]));
+
+                }
+                connection.Close();
             }
+
+            if (outFlights.Count == 0)
+            {
+                return null;
+            }
+            return outFlights;
         }
 
     }
