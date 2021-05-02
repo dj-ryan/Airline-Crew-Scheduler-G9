@@ -89,7 +89,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport WHERE airportID = @airportID", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state, nu150CertifiedCrewList, gbr10CertifiedCrewList, nu150Standby, gbr10Standby FROM Airport WHERE airportID = @airportID", connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("airportID", airportID);
                 cmd.ExecuteNonQuery();
