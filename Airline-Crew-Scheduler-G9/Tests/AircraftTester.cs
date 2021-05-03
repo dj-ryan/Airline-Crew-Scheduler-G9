@@ -26,7 +26,12 @@ namespace Airline_Crew_Scheduler_G9.Tests
 
         }
 
-        public void RetrieveAircraftTester()
+        public void RetrieveGbr10AircraftTester()
+        {
+
+        }
+
+        public void RetrieveNu150AircraftTester()
         {
 
         }

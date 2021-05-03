@@ -67,14 +67,6 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             return outCrews[0];
         }
 
-        public List<Crew> RetrieveCrew()
-        {
-            using (MySqlConnection connection = AccessorHelper.ConnectVal())
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         //Todo: Create an Crew Captain Update Method
         public void UpdateCrew(Crew crewToUpdate)
         {

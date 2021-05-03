@@ -7,7 +7,7 @@
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public bool Gbr10Certification { get; set; }
-        public bool Nu150Certification{ get; set; }
+        public bool Nu150Certification { get; set; }
 
         public Employee(int employeeID, string firstName, string lastName, bool gbr10Cert, bool nu150Cert)
         {
