@@ -118,7 +118,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                     Crew crew = CrewAccessor.RetrieveCrew((int)itemsArray[2]);
                     Airport origin = AirportAccessor.RetrieveAirport((int)itemsArray[3]);
                     Airport destination = AirportAccessor.RetrieveAirport((int)itemsArray[4]);
-                    FlightTime flightTime = FlightTimeAccessor.RetrieveFlightTime((int)itemsArray[5]);
+                    FlightTime flightTime = FlightTimeAccessor.RetrieveCurrentFlightTime((int)itemsArray[5]);
 
                     outFlights.Add(new Flight((int)itemsArray[0], aircraft, crew, origin, destination, flightTime, (int)itemsArray[6]));
 
@@ -162,7 +162,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                     Crew crew = CrewAccessor.RetrieveCrew((int)itemsArray[2]);
                     Airport origin = AirportAccessor.RetrieveAirport((int)itemsArray[3]);
                     Airport destination = AirportAccessor.RetrieveAirport((int)itemsArray[4]);
-                    FlightTime flightTime = FlightTimeAccessor.RetrieveFlightTime((int)itemsArray[5]);
+                    FlightTime flightTime = FlightTimeAccessor.RetrieveCompletedFlightTime((int)itemsArray[5]);
 
                     outFlights.Add(new Flight((int)itemsArray[0], aircraft, crew, origin, destination, flightTime, (int)itemsArray[6]));
 
