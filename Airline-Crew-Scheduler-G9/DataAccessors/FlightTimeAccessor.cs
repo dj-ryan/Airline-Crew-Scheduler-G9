@@ -28,7 +28,72 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
                 {
                     var itemsArray = dataRow.ItemArray;
                     //may not work vvv
-                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse((string) itemsArray[1]));
+                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse((string) itemsArray[1]), DateTime.Parse((string)itemsArray[2]), 
+                                                                      DateTime.Parse((string)itemsArray[4]), DateTime.Parse((string)itemsArray[5]));
+                    outFlightTime.Add(d);
+                }
+                connection.Close();
+            }
+
+            if (outFlightTime.Count == 0)
+            {
+                return null;
+            }
+            return outFlightTime[0];
+        }
+
+        public static FlightTime RetrieveCurrentFlightTime(int timeID)
+        {
+            var outFlightTime = new List<FlightTime>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT timeID, scheduledTakeoff, estimatedTakeoff, actualTakeoff, scheduledArrival, estimatedArrival, actualArrival FROM FlightTime WHERE timeID = @timeID", connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("timeID", timeID);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    //may not work vvv
+                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse((string)itemsArray[1]), DateTime.Parse((string)itemsArray[2]),
+                                                                      DateTime.Parse((string)itemsArray[3]), DateTime.Parse((string)itemsArray[4]),
+                                                                      DateTime.Parse((string)itemsArray[5]));
+                    outFlightTime.Add(d);
+                }
+                connection.Close();
+            }
+
+            if (outFlightTime.Count == 0)
+            {
+                return null;
+            }
+            return outFlightTime[0];
+        }
+
+        public static FlightTime RetrieveCompletedFlightTime(int timeID)
+        {
+            var outFlightTime = new List<FlightTime>();
+            using (MySqlConnection connection = AccessorHelper.ConnectVal())
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT timeID, scheduledTakeoff, estimatedTakeoff, actualTakeoff, scheduledArrival, estimatedArrival, actualArrival FROM FlightTime WHERE timeID = @timeID", connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("timeID", timeID);
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    var itemsArray = dataRow.ItemArray;
+                    //may not work vvv
+                    FlightTime d = new FlightTime((int)itemsArray[0], DateTime.Parse((string)itemsArray[1]), DateTime.Parse((string)itemsArray[2]),
+                                                                      DateTime.Parse((string)itemsArray[3]), DateTime.Parse((string)itemsArray[4]),
+                                                                      DateTime.Parse((string)itemsArray[5]), DateTime.Parse((string)itemsArray[6]));
                     outFlightTime.Add(d);
                 }
                 connection.Close();

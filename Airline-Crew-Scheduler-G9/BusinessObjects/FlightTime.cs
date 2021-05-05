@@ -31,6 +31,35 @@ namespace Airline_Crew_Scheduler_G9.BusinessObjects
         }
 
         public FlightTime(int timeID,
+              DateTime scheduledTakeoffTime, DateTime estimatedTakeoffTime,
+              DateTime actualTakeoffTime, DateTime scheduledTouchdownTime,
+              DateTime estimatedTouchDownTime, DateTime actualTouchdownTime)
+        {
+            TimeID = timeID;
+            ScheduledTakeoffTime = scheduledTakeoffTime;
+            EstimatedTakeoffTime = estimatedTakeoffTime;
+            ScheduledTouchdownTime = scheduledTouchdownTime;
+            EstimatedTouchdownTime = estimatedTouchDownTime;
+            ActualTakeoffTime = actualTakeoffTime;
+            ActualTouchdownTime = actualTouchdownTime;
+
+        }
+        public FlightTime(int timeID,
+              DateTime scheduledTakeoffTime, DateTime estimatedTakeoffTime,
+              DateTime actualTakeoffTime, DateTime scheduledTouchdownTime,
+              DateTime estimatedTouchDownTime)
+        {
+            TimeID = timeID;
+            ScheduledTakeoffTime = scheduledTakeoffTime;
+            EstimatedTakeoffTime = estimatedTakeoffTime;
+            ScheduledTouchdownTime = scheduledTouchdownTime;
+            EstimatedTouchdownTime = estimatedTouchDownTime;
+            ActualTakeoffTime = actualTakeoffTime;
+            ActualTouchdownTime = null;
+
+        }
+
+        public FlightTime(int timeID,
             DateTime scheduledTakeoffTime)
         {
             TimeID = timeID;

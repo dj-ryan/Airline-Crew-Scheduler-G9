@@ -56,7 +56,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
             var outAirports = new List<Airport>();
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT airportID, city, state FROM Airport WHERE city = @city AND state = @state", connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Airport WHERE city = @city AND state = @state", connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("city", city);
                 cmd.Parameters.AddWithValue("state", state);
