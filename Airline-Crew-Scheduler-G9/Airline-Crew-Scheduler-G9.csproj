@@ -56,7 +56,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Tests\AircraftTester.cs" />
     <Compile Include="Tests\AirportTester.cs" />
-    <Compile Include="Tests\ProgramTester.cs" />
     <Compile Include="Tests\CrewTester.cs" />
     <Compile Include="Tests\EmployeeTester.cs" />
     <Compile Include="Tests\FlightTester.cs" />

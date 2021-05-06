@@ -50,27 +50,16 @@ namespace Airline_Crew_Scheduler_G9.Tests
             int airplaneID_Nu150 = 11;
             string registrationNo_Gbr10 = "test0";
             string registrationNo_Nu150 = "test1";
+
+            Crew c = null;
+
+            // Act
+            c = CrewAccessor.RetrieveCrew(2);
             Aircraft gbr = new Gbr10(airplaneID_Gbr10, registrationNo_Gbr10);
             Aircraft nu = new Nu150(airplaneID_Nu150, registrationNo_Nu150);
 
-            int captain = 1;
-            int firstOfficer_Gbr10_pass = 2;
-
-
-
-            //Crew crew_Gbr10_pass = new Crew(captain, firstOfficer_Gbr10_pass, flightAttendant1, flightAttendant2);
-            //Crew crew_Gbr10_fail = new Crew(captain, firstOfficer_Gbr10_pass, flightAttendant1, flightAttendant2);
-            //Crew crew_Nu150_pass = new Crew(captain, firstOfficer_Gbr10_pass, flightAttendant1, flightAttendant2);
-            //Crew crew_Gbr10_fail = new Crew(captain, firstOfficer_Gbr10_pass, flightAttendant1, flightAttendant2);
-
-
             // Act
-
-
-
-            // Assert
-
-
+            gbr.QualifiedCrewCheck(c);
 
         }
 
