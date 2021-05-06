@@ -21,6 +21,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         public static object MessageBox { get; private set; }
 
         //Todo: Create an Aircraft insertion method
+        //Not required  for project but could be implemented for more extensive features
         public void InsertAircraft(Aircraft newAircraft)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
@@ -149,6 +150,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Aircraft Update Method
+        //Not required  for project but could be implemented for more extensive features
         public void UpdateAircraft(Aircraft AircraftToUpdate)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
@@ -159,6 +161,7 @@ namespace Airline_Crew_Scheduler_G9.DataAccessors
         }
 
         //Todo: Create an Aircraft deletion Method
+        //Not required  for project but could be implemented for more extensive features
         public void DeleteAircraft(Aircraft deadAircraft)
         {
             using (MySqlConnection connection = AccessorHelper.ConnectVal())
